@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://bah8rlvotmage"]
+
+[ext_resource type="Script" path="res://assets/scenes/player/player.gd" id="1_avadn"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ftwlq"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_28h0d"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_nfnnv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oroit"]
+size = Vector3(1, 1, 3.84122)
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_avadn")
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_ftwlq")
+
+[node name="MeshCapsule" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_28h0d")
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.53088, 0)
+
+[node name="SpringArm3D" type="SpringArm3D" parent="Head"]
+spring_length = 0.0
+
+[node name="Camera3D" type="Camera3D" parent="Head/SpringArm3D"]
+
+[node name="ItemHoldable" type="Node3D" parent="Head"]
+transform = Transform3D(0.984159, 0.177291, 0, -0.177291, 0.984159, 0, 0, 0, 1, 0.963025, -0.668111, -0.965682)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Head/ItemHoldable"]
+transform = Transform3D(0.228857, 0, 0, 0, 0.75464, 0, 0, 0, 0.21, 0, 0, 0.154587)
+mesh = SubResource("BoxMesh_nfnnv")
+
+[node name="Hitbox" type="Area3D" parent="."]
+
+[node name="HitboxCollision" type="CollisionShape3D" parent="Hitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.44662, -2.2891)
+shape = SubResource("BoxShape3D_oroit")

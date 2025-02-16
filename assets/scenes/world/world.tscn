@@ -1,0 +1,97 @@
+[gd_scene load_steps=11 format=3 uid="uid://blxnjiirj3l07"]
+
+[ext_resource type="PackedScene" uid="uid://bah8rlvotmage" path="res://assets/scenes/player/player.tscn" id="1_bqxxq"]
+[ext_resource type="PackedScene" uid="uid://btrrbwknpdyt8" path="res://assets/scenes/enemy/enemy.tscn" id="2_05ke4"]
+[ext_resource type="PackedScene" uid="uid://c5ndh5x0xttcc" path="res://assets/scenes/hud/hud.tscn" id="3_aehdl"]
+[ext_resource type="PackedScene" uid="uid://bsk73pnasivjr" path="res://assets/scenes/audio/audio_controller.tscn" id="4_km7ra"]
+[ext_resource type="PackedScene" uid="uid://b6sgjtb1rrnae" path="res://assets/scenes/objects/shipping_container.tscn" id="5_wc4v3"]
+[ext_resource type="PackedScene" uid="uid://bjh0xbq7phlir" path="res://assets/scenes/objects/vending_machine.tscn" id="6_5k0fr"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_j25at"]
+sky_top_color = Color(0.217189, 0.44698, 0.610555, 1)
+sky_horizon_color = Color(0.455843, 0.373351, 0.334332, 1)
+sky_curve = 0.235375
+ground_bottom_color = Color(0.100316, 0.0812793, 0.0591645, 1)
+ground_horizon_color = Color(0.246065, 0.25269, 0.263148, 1)
+
+[sub_resource type="Sky" id="Sky_kxoal"]
+sky_material = SubResource("ProceduralSkyMaterial_j25at")
+
+[sub_resource type="Environment" id="Environment_gkuor"]
+background_mode = 2
+sky = SubResource("Sky_kxoal")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cktld"]
+albedo_color = Color(0.389287, 0.389287, 0.389286, 1)
+
+[node name="world" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_gkuor")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="HUD" parent="." instance=ExtResource("3_aehdl")]
+
+[node name="Player" parent="." node_paths=PackedStringArray("hud", "audio_controller") instance=ExtResource("1_bqxxq")]
+hud = NodePath("../HUD")
+audio_controller = NodePath("../AudioController")
+
+[node name="floor" type="CSGBox3D" parent="."]
+use_collision = true
+size = Vector3(105, 0.001, 115)
+material = SubResource("StandardMaterial3D_cktld")
+
+[node name="Enemy" parent="." instance=ExtResource("2_05ke4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.87834, 0.000500679, -2.34543)
+
+[node name="Enemy2" parent="." instance=ExtResource("2_05ke4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.37198, 0.00100136, 1.8571)
+
+[node name="Enemy3" parent="." instance=ExtResource("2_05ke4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.99419, 0.000495911, 13.4573)
+
+[node name="Enemy4" parent="." instance=ExtResource("2_05ke4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.83113, 0.000495911, 5.33685)
+
+[node name="AudioController" parent="." instance=ExtResource("4_km7ra")]
+
+[node name="Shipping Container" parent="." instance=ExtResource("5_wc4v3")]
+transform = Transform3D(1.99944, 0, 0, 0, 1.99944, 0, 0, 0, 1.99944, 1.47716, 1.9773, -6.5746)
+
+[node name="Shipping Container2" parent="." instance=ExtResource("5_wc4v3")]
+transform = Transform3D(-1.8614, -0.00283222, -0.730016, -0.00275949, 1.99944, -0.00072096, 0.730016, 0.00033632, -1.86141, 1.11963, 5.95712, -6.86444)
+
+[node name="Shipping Container3" parent="." instance=ExtResource("5_wc4v3")]
+transform = Transform3D(0.484432, -1.93058, 0.189638, -1.79726, -0.520228, -0.704954, 0.730016, 0.00033632, -1.86141, 7.86834, 5.90799, -3.22661)
+
+[node name="Vending Machine" parent="." instance=ExtResource("6_5k0fr")]
+transform = Transform3D(1.42996, 0, -0.453006, 0, 1.5, 0, 0.453006, 0, 1.42996, -1, 0, -2)
+
+[node name="Vending Machine2" parent="." instance=ExtResource("6_5k0fr")]
+transform = Transform3D(-1.25811, 0.631716, -0.517767, 0.272011, 1.22063, 0.828301, 0.770167, 0.600839, -1.13835, -8.08565, 1.16006, -3.56148)
+
+[node name="Vending Machine3" parent="." instance=ExtResource("6_5k0fr")]
+transform = Transform3D(-0.0127455, 1.49994, -0.0033468, 0.315513, 0.00595344, 1.46643, 1.46639, 0.0117563, -0.315551, -6.16513, 2.01561, 0.27115)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(0.730145, 0.491324, -0.474857, 0.173568, 0.538797, 0.824362, 0.66088, -0.684324, 0.308122, 3.57628e-07, 7, -1.93968)
+spot_range = 16.0
+spot_attenuation = 0.26
+spot_angle = 31.8275
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="."]
+transform = Transform3D(0.571613, 0.725018, 0.384197, -0.778006, 0.330137, 0.534524, 0.260702, -0.604449, 0.752779, 0.479014, 7.60824, 0.683881)
+spot_range = 16.0
+spot_attenuation = 0.26
+spot_angle = 31.8275
+
+[node name="Enemy5" parent="." instance=ExtResource("2_05ke4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.63106, 0.000501633, -0.170906)
+
+[node name="Enemy6" parent="." instance=ExtResource("2_05ke4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.56811, 0.000502586, 2.16424)

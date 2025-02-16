@@ -1,0 +1,11 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://dwo61ssg61o13"]
+
+[ext_resource type="FontFile" uid="uid://cwpt2uuf6can2" path="res://assets/theme/fonts/GraffitiYouth-Regular.otf" id="1_2nqcq"]
+
+[resource]
+font = ExtResource("1_2nqcq")
+font_size = 100
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
+shadow_color = Color(1, 0, 0, 0)

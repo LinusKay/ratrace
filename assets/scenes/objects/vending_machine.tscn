@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjh0xbq7phlir"]
+
+[ext_resource type="PackedScene" uid="uid://c1xy1rouxstmn" path="res://assets/models/vending_machine/Vending Machine.glb" id="1_jkxov"]
+[ext_resource type="Script" path="res://assets/scenes/objects/vending_machine.gd" id="2_3nltu"]
+
+[node name="Vending Machine" instance=ExtResource("1_jkxov")]
+script = ExtResource("2_3nltu")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." index="3" groups=["hittable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7336, 0.809454, -0.572378)
+visible = false
+use_collision = true
+size = Vector3(0.759216, 1.65027, 1)

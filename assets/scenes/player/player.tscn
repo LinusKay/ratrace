@@ -1,0 +1,122 @@
+[gd_scene load_steps=13 format=3 uid="uid://bah8rlvotmage"]
+
+[ext_resource type="Script" path="res://assets/scenes/player/player.gd" id="1_avadn"]
+[ext_resource type="Texture2D" uid="uid://csf5rarxcvqqf" path="res://assets/sprites/fists_hold.png" id="2_ysd8j"]
+[ext_resource type="Texture2D" uid="uid://bpdm6ixywimn5" path="res://assets/sprites/hand_watch.png" id="3_capd7"]
+[ext_resource type="Texture2D" uid="uid://6dy05cabpr4k" path="res://assets/sprites/fists_punch_left.png" id="4_q3jgt"]
+[ext_resource type="Script" path="res://assets/scenes/player/fists.gd" id="4_s8g3s"]
+[ext_resource type="Texture2D" uid="uid://bgf1lq4xy21g4" path="res://assets/sprites/fists_punch_right.png" id="5_l5ggp"]
+[ext_resource type="Texture2D" uid="uid://3kiu4vl6y4ff" path="res://assets/sprites/hands_regret.png" id="6_rsah5"]
+[ext_resource type="Texture2D" uid="uid://n0qinpkissla" path="res://assets/sprites/thumbs_up.png" id="7_7ve22"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ftwlq"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_28h0d"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rjern"]
+size = Vector3(1.00977, 0.923584, 1.61733)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ur6j1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_7ve22")
+}],
+"loop": false,
+"name": &"emote_thumbs_up",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_capd7")
+}],
+"loop": false,
+"name": &"emote_watch",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ysd8j")
+}],
+"loop": true,
+"name": &"idle_fists",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_q3jgt")
+}],
+"loop": false,
+"name": &"punch_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_l5ggp")
+}],
+"loop": false,
+"name": &"punch_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_rsah5")
+}],
+"loop": false,
+"name": &"regret",
+"speed": 1.0
+}]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_avadn")
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_ftwlq")
+
+[node name="MeshCapsule" type="MeshInstance3D" parent="Collision"]
+visible = false
+mesh = SubResource("CapsuleMesh_28h0d")
+skeleton = NodePath("../..")
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.53088, 0)
+
+[node name="SpringArm3D" type="SpringArm3D" parent="Head"]
+spring_length = 0.0
+
+[node name="Camera3D" type="Camera3D" parent="Head/SpringArm3D"]
+
+[node name="Hitbox" type="Area3D" parent="Head/SpringArm3D/Camera3D"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00323176, -1.72768)
+
+[node name="HitboxCollision" type="CollisionShape3D" parent="Head/SpringArm3D/Camera3D/Hitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.438689)
+shape = SubResource("BoxShape3D_rjern")
+
+[node name="FistSprite" type="AnimatedSprite3D" parent="Head/SpringArm3D/Camera3D"]
+unique_name_in_owner = true
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, -0.242973, -1)
+billboard = 1
+sprite_frames = SubResource("SpriteFrames_ur6j1")
+animation = &"emote_thumbs_up"
+script = ExtResource("4_s8g3s")
+
+[node name="ItemSlot" type="Node3D" parent="Head/SpringArm3D"]
+
+[node name="ComboTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="SprintSlideTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="SlideTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="EmoteTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="animation_finished" from="Head/SpringArm3D/Camera3D/FistSprite" to="Head/SpringArm3D/Camera3D/FistSprite" method="_on_animation_finished"]
+[connection signal="timeout" from="ComboTimer" to="." method="_on_combo_timer_timeout"]
+[connection signal="timeout" from="SlideTimer" to="." method="_on_slide_timer_timeout"]
