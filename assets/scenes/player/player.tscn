@@ -134,7 +134,7 @@ visible = false
 billboard = 1
 sprite_frames = SubResource("SpriteFrames_ur6j1")
 animation = &"run"
-frame_progress = 0.778063
+frame_progress = 0.449749
 
 [node name="ItemSlot" type="Node3D" parent="Head/SpringArm3D"]
 
@@ -154,7 +154,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.095
 fov = 90.2
 
 [node name="Sprite3D" type="Sprite3D" parent="Head/HeadCameraViewport/HeadCameraNode"]
-transform = Transform3D(-0.5, -1.56769e-08, -7.2866e-08, 3.94116e-09, 0.48257, -0.130867, 7.44291e-08, -0.130867, -0.48257, 0, -0.044, 0.412)
+transform = Transform3D(-0.5, -1.56769e-08, -7.2866e-08, 1.73098e-08, 0.451026, -0.215815, 7.24955e-08, -0.215815, -0.451026, 0, -0.132329, 0.469061)
 texture = ExtResource("10_qky7i")
 
 [node name="ComboTimer" type="Timer" parent="."]

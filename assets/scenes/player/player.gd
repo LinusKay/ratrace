@@ -109,9 +109,17 @@ func _physics_process(delta: float) -> void:
 	
 	# Get the input direction and handle the movement/deceleration.
 	var input_dir := Input.get_vector("left", "right", "up", "down")
-
-	if is_sliding: 
+	
+	if is_sliding:
 		desired_speed = SLIDE_SPEED - (SLIDE_TIME / $SlideTimer.time_left)
+		
+	if is_sliding or !is_on_floor(): 
+		print('dfgdfgfdg')
+		hud.get_node("PlayerHeadCameraRect/TVRect").material.set_shader_parameter("distort_intensity", 0.2)
+		hud.get_node("PlayerHeadCameraRect/TVRect").material.set_shader_parameter("roll_speed", 16)
+	else:
+		hud.get_node("PlayerHeadCameraRect/TVRect").material.set_shader_parameter("distort_intensity", 0)
+		hud.get_node("PlayerHeadCameraRect/TVRect").material.set_shader_parameter("roll_speed", 4)
 		
 	speed = clampf(lerpf(speed, desired_speed, .5), 0, 100)
 	
