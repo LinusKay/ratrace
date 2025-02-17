@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://blxnjiirj3l07"]
+[gd_scene load_steps=13 format=3 uid="uid://blxnjiirj3l07"]
 
 [ext_resource type="PackedScene" uid="uid://bah8rlvotmage" path="res://assets/scenes/player/player.tscn" id="1_bqxxq"]
 [ext_resource type="PackedScene" uid="uid://btrrbwknpdyt8" path="res://assets/scenes/enemy/enemy.tscn" id="2_05ke4"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://bsk73pnasivjr" path="res://assets/scenes/audio/audio_controller.tscn" id="4_km7ra"]
 [ext_resource type="PackedScene" uid="uid://b6sgjtb1rrnae" path="res://assets/scenes/objects/shipping_container.tscn" id="5_wc4v3"]
 [ext_resource type="PackedScene" uid="uid://bjh0xbq7phlir" path="res://assets/scenes/objects/vending_machine.tscn" id="6_5k0fr"]
+[ext_resource type="Texture2D" uid="uid://cn2c5loohtdpy" path="res://assets/sprites/adverts/downloadmania_banner.jpg" id="7_vdlvp"]
+[ext_resource type="Texture2D" uid="uid://cc4fymyq01tr" path="res://assets/sprites/adverts/rapiddealdonlinesaleswebboard_banner.jpg" id="8_3m6wk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_j25at"]
 sky_top_color = Color(0.217189, 0.44698, 0.610555, 1)
@@ -35,7 +37,8 @@ environment = SubResource("Environment_gkuor")
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 shadow_enabled = true
 
-[node name="HUD" parent="." instance=ExtResource("3_aehdl")]
+[node name="HUD" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_aehdl")]
+player = NodePath("../Player")
 
 [node name="Player" parent="." node_paths=PackedStringArray("hud", "audio_controller") instance=ExtResource("1_bqxxq")]
 hud = NodePath("../HUD")
@@ -48,15 +51,6 @@ material = SubResource("StandardMaterial3D_cktld")
 
 [node name="Enemy" parent="." instance=ExtResource("2_05ke4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.87834, 0.000500679, -2.34543)
-
-[node name="Enemy2" parent="." instance=ExtResource("2_05ke4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.37198, 0.00100136, 1.8571)
-
-[node name="Enemy3" parent="." instance=ExtResource("2_05ke4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.99419, 0.000495911, 13.4573)
-
-[node name="Enemy4" parent="." instance=ExtResource("2_05ke4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.83113, 0.000495911, 5.33685)
 
 [node name="AudioController" parent="." instance=ExtResource("4_km7ra")]
 
@@ -90,8 +84,24 @@ spot_range = 16.0
 spot_attenuation = 0.26
 spot_angle = 31.8275
 
-[node name="Enemy5" parent="." instance=ExtResource("2_05ke4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.63106, 0.000501633, -0.170906)
+[node name="BillboardAdvert" type="Sprite3D" parent="."]
+transform = Transform3D(2.9142, 1.92096, 2.81306, -0.243007, 3.80984, -2.34989, -3.3977, 1.37512, 2.58082, -17.1782, 19.662, -11.2772)
+modulate = Color(1, 1, 1, 0.270588)
+texture = ExtResource("7_vdlvp")
 
-[node name="Enemy6" parent="." instance=ExtResource("2_05ke4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.56811, 0.000502586, 2.16424)
+[node name="BillboardAdvert2" type="Sprite3D" parent="."]
+transform = Transform3D(-3.4583, -6.2655, -9.80052, -0.657834, 10.3135, -6.3613, 11.6135, -1.28156, -3.27875, 39.7883, 66.4804, 23.2285)
+modulate = Color(1, 1, 1, 0.270588)
+texture = ExtResource("8_3m6wk")
+
+[node name="Enemy2" parent="." instance=ExtResource("2_05ke4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.83508, 0.000500679, 0.357605)
+
+[node name="Enemy3" parent="." instance=ExtResource("2_05ke4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.36033, 0.000499725, 5.46751)
+
+[node name="Enemy4" parent="." instance=ExtResource("2_05ke4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.81761, 0.000498772, 0.385788)
+
+[node name="Enemy5" parent="." instance=ExtResource("2_05ke4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.811813, 0.000499725, 3.56112)

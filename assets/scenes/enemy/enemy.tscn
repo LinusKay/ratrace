@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://btrrbwknpdyt8"]
+[gd_scene load_steps=6 format=3 uid="uid://btrrbwknpdyt8"]
 
 [ext_resource type="Script" path="res://assets/scenes/enemy/enemy.gd" id="1_wg2nr"]
+[ext_resource type="FontFile" uid="uid://cwpt2uuf6can2" path="res://assets/theme/fonts/GraffitiYouth-Regular.otf" id="2_d6oo5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ssdw4"]
 albedo_color = Color(1, 0.0666667, 0.180392, 1)
@@ -26,3 +27,14 @@ shape = SubResource("CapsuleShape3D_mjy3u")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.24932, 0)
 billboard = 1
 text = "WEALTH"
+font = ExtResource("2_d6oo5")
+font_size = 50
+
+[node name="SpeechLabel" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.40716, 0)
+billboard = 1
+vertical_alignment = 2
+
+[node name="SpeechTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="SpeechTimer" to="." method="_on_speech_timer_timeout"]

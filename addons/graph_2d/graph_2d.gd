@@ -300,7 +300,7 @@ func _update_graph() -> void:
 		var grad: Array = []
 		grad_px.x = margin_left + n * hor_grad_step_px
 		grad.append(grad_px)
-		var grad_text = "%0.1f" % (float(x_min) + n * float(x_axis_range)/(hor_grad_number-1))
+		var grad_text = int((x_min + n * x_axis_range/(hor_grad_number-1)))
 		grad.append(grad_text)
 		hor_grad.append(grad)
 		

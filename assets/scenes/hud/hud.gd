@@ -1,6 +1,8 @@
 extends Control
 class_name UI
 
+@export var player: CharacterBody3D
+
 var wealth_tracker: Array = []
 var wealth_plot: RefCounted
 var wealth: int = 0
@@ -10,7 +12,10 @@ var plot_colour: Color = Color.RED
 func _ready() -> void:
 	update_combo(0)
 	ready_wealth_graph()
-
+	$MascotSprite.play("polyfox")
+	$MascotSprite2.play("malpal")
+	$MascotSprite3.play("srimp")
+	$PlayerHeadCameraRect.texture = player.get_node("Head/HeadCameraViewport").get_texture()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -37,11 +42,11 @@ func update_combo(_combo_count: int) -> void:
 
 func update_wealth(_wealth: int) -> void:
 	wealth = _wealth
-	$WealthLabel.text = "Wealth: $" + str(wealth)
+	$WealthLabel.text = "$" + str(wealth)
 
 func ready_wealth_graph() -> void:
 	wealth_plot = $WealthGraph.add_plot_item(
-		"Wealth",
+		"",
 		plot_colour,
 		1
 		)

@@ -6,7 +6,7 @@ extends CharacterBody3D
 @onready var head: Node3D = $Head
 @onready var spring_arm: SpringArm3D = $Head/SpringArm3D
 @onready var camera: Camera3D = $Head/SpringArm3D/Camera3D
-@onready var fists: AnimatedSprite3D = %FistSprite
+@onready var fists: AnimatedSprite2D = hud.get_node("FistPlacement/FistSprite")
 @onready var hitbox: Area3D = %Hitbox
 @onready var combo_timer: Timer = $ComboTimer
 
@@ -23,7 +23,7 @@ const WALK_SPEED = 5.0
 const SPRINT_SPEED = 10.0
 const SLIDE_SPEED = 15.0
 const SPRINT_SLIDE_TIMEOUT = 0.5
-const SLIDE_TIME = 1.0
+const SLIDE_TIME = 0.5
 const JUMP_VELOCITY = 4.5
 const SENSITIVITY = 0.002
 const BOB_FREQ = 2.0
@@ -48,10 +48,9 @@ var is_sliding: bool = false
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
 
 func _unhandled_input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("debug_hurt"):
-		wealth -= 5756
 		
 	if Input.is_action_just_pressed("attack"):
 		melee()
@@ -60,8 +59,14 @@ func _unhandled_input(event: InputEvent) -> void:
 		emote()
 	
 	# Quit game on ESC
-	if Input.is_action_pressed("quit"):
+	if Input.is_action_pressed("debug_quit"):
 		get_tree().quit()
+	
+	if Input.is_action_just_pressed("debug_restart"):
+		get_tree().reload_current_scene()
+		
+	if Input.is_action_just_pressed("debug_hurt"):
+		wealth -= 5756
 		
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		head.rotate_y(-event.relative.x * SENSITIVITY)
@@ -84,14 +89,18 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("sprint"):
 		desired_speed = SPRINT_SPEED
 		$SprintSlideTimer.start(SPRINT_SLIDE_TIMEOUT)
+		fists.run()
 	else:
-		desired_speed = WALK_SPEED
+		if !is_sliding:
+			fists.walk()
+			desired_speed = WALK_SPEED
 	
-	if Input.is_action_just_pressed("crouch"):
+	if Input.is_action_pressed("crouch"):
 		head.position.y = 1
 		if !$SprintSlideTimer.is_stopped():
 			$SlideTimer.start(SLIDE_TIME)
 			is_sliding = true
+			fists.slide()
 	
 	if Input.is_action_just_released("crouch"):
 		is_sliding = false
@@ -128,7 +137,12 @@ func _physics_process(delta: float) -> void:
 		camera.fov = lerp(camera.fov, target_fov, delta * 8.0)
 
 	move_and_slide()
-
+	
+	# Head Camera follow/bob
+	%HeadCameraNode.global_position = head.global_position
+	%HeadCameraNode.transform.basis = head.transform.basis
+	%HeadCamera.transform.origin = %SpringArm3D.transform.origin
+	
 
 func _headbob(time: float) -> Vector3:
 	var pos: Vector3 = Vector3.ZERO
