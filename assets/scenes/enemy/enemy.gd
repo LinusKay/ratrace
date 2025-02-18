@@ -1,11 +1,30 @@
 extends CharacterBody3D
 
+@export var player: CharacterBody3D
 @export var wealth: int = 100000
 @export var wealth_reward: int = 100000
 
+var is_staring: bool = false
 var is_speaking: bool = false
 var wealth_min: int = 10000
 var wealth_max: int = 1000000
+
+var speed: float = 2.0
+var speed_min: float = 1.0
+var speed_max: float = 3.0
+var speed_chase: float = 4.0
+var rotation_speed: float = 8.0
+
+var rotation_goal: Quaternion
+
+var activities: Array[String] = [
+	"stand",
+	"roam",
+	"stare",
+	#"chase"
+]
+var activity: String = activities.pick_random()
+var hurt_reaction: String
 
 var personality_bank: Dictionary = {
 	"investor_bad" = {
@@ -20,7 +39,8 @@ var personality_bank: Dictionary = {
 			"Do I owe you money?",
 			"Do your worst."
 		],
-		"wealth": [0, 10000]
+		"wealth": [0, 10000],
+		"hurt_reaction": ["freeze", "flight"]
 	},
 	"investor_good" = {
 		"speech": [
@@ -48,7 +68,8 @@ var personality_bank: Dictionary = {
 			"Name your price.",
 			"Do you know who I am?"
 		],
-		"wealth": [10000, 1000000]
+		"wealth": [10000, 1000000],
+		"hurt_reaction": ["fight", "flight"]
 	},
 	"terminally_online" = {
 		"speech": [
@@ -71,7 +92,8 @@ var personality_bank: Dictionary = {
 			"YEOWCH",
 			"someone clip this",
 		],
-		"wealth": []
+		"wealth": [],
+		"hurt_reaction": ["flight", "freeze"]
 	},
 	"insane" = {
 		"speech": [
@@ -89,7 +111,8 @@ var personality_bank: Dictionary = {
 			"I am invincible",
 			"I am bulletproof"
 		],
-		"wealth": [10000, 30000]
+		"wealth": [10000, 30000],
+		"hurt_reaction": ["fight", "flight"]
 	},
 	":3" = {
 		"speech": [
@@ -110,7 +133,8 @@ var personality_bank: Dictionary = {
 			"૮(˶ㅠ︿ㅠ)ა",
 			"(˚ ˃̣̣̥⌓˂̣̣̥ )"
 		],
-		"wealth": [10000, 100000]
+		"wealth": [10000, 100000],
+		"hurt_reaction": ["freeze", "flight"]
 	},
 	"bot" = {
 		"speech": [
@@ -130,27 +154,62 @@ var personality_bank: Dictionary = {
 			":[]",
 			":["
 		],
-		"wealth": [10000, 50000]
+		"wealth": [10000, 50000],
+		"hurt_reaction": ["freeze", "flight", "fight"]
 	}
 }
 
 var personality: String = personality_bank.keys().pick_random()
 
 
-
 func _ready() -> void:
+	is_staring = false
+	look_random()
+	hurt_reaction = personality_bank[personality]["hurt_reaction"].pick_random()
 	if personality_bank[personality]["wealth"] != []:
 		wealth_min = personality_bank[personality]["wealth"][0]
 		wealth_max = personality_bank[personality]["wealth"][1]
 	wealth = randi_range(wealth_min, wealth_max)
 	$SpeechTimer.start(randf_range(0.1, 2.0))
-	pass
-	
-func _process(delta: float) -> void:
+
+
+func _physics_process(delta: float) -> void:
 	$WealthLabel.text = "$" + str(wealth)
+	
+	if is_staring:
+		set_rotation_goal_to_player()
+	
+	if activity == "stand":
+		velocity = Vector3.ZERO
+		if global_position.distance_to(player.global_position) < 3.0:
+			is_staring = true
+		else: is_staring = false
+	elif activity == "roam":
+		velocity = -basis.z * speed
+	elif activity == "chase":
+		set_rotation_goal_to_player()
+		velocity = -basis.z * speed_chase
+	rotate_towards(rotation_goal, delta)
+	move_and_slide()
+
+
+func look_random() -> void:
+	var random_rotation: Basis = Basis()
+	random_rotation = random_rotation.rotated(Vector3.UP, randf_range(-PI, PI))  # Random Y-axis rotation
+	rotation_goal = Quaternion(random_rotation)  # Store as target rotation
+
+func rotate_towards(target_rotation: Quaternion, delta: float) -> void:
+	var current_quat: Quaternion = Quaternion(transform.basis)
+	transform.basis = Basis(current_quat.slerp(target_rotation, rotation_speed * delta))
+
+func set_rotation_goal_to_player() -> void:
+	var direction_to_player: Vector3 = (player.global_transform.origin - global_transform.origin).normalized()
+	var target_quat: Quaternion = Quaternion(Basis().looking_at(direction_to_player, Vector3.UP))
+	rotation_goal = target_quat  # Set the rotation goal to face the player
+
 
 func hurt(_damage: int) -> float: 
-	_speak_hurt()
+	_react_hurt()
 	wealth -= _damage
 	if wealth <= 0:
 		die()
@@ -158,8 +217,16 @@ func hurt(_damage: int) -> float:
 	else: 
 		return 0
 
+
+func _react_hurt() -> void:
+	_speak_hurt()
+	if hurt_reaction == "fight":
+		activity = "chase"
+
+
 func die() -> void:
 	queue_free()
+
 
 func _speak() -> void:
 	$SpeechLabel.text = personality_bank[personality]["speech"].pick_random()
@@ -173,6 +240,7 @@ func _speak_hurt() -> void:
 	$SpeechTimer.start(2.0)
 	is_speaking = true
 
+
 func _on_speech_timer_timeout() -> void:
 	if is_speaking:
 		$SpeechLabel.hide()
@@ -180,3 +248,11 @@ func _on_speech_timer_timeout() -> void:
 		$SpeechTimer.start(randf_range(1, 2.0))
 	else:
 		_speak()
+
+
+func _on_direction_timer_timeout() -> void:
+	if activity == "roam":
+		look_random()
+		speed = randf_range(speed_min, speed_max)
+		var timer_rand: float = randf_range(1.0, 5.0)
+		$DirectionTimer.start(timer_rand)

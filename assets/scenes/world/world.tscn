@@ -49,9 +49,6 @@ use_collision = true
 size = Vector3(105, 0.001, 115)
 material = SubResource("StandardMaterial3D_cktld")
 
-[node name="Enemy" parent="." instance=ExtResource("2_05ke4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.87834, 0.000500679, -2.34543)
-
 [node name="AudioController" parent="." instance=ExtResource("4_km7ra")]
 
 [node name="Shipping Container" parent="." instance=ExtResource("5_wc4v3")]
@@ -94,14 +91,22 @@ transform = Transform3D(-3.4583, -6.2655, -9.80052, -0.657834, 10.3135, -6.3613,
 modulate = Color(1, 1, 1, 0.270588)
 texture = ExtResource("8_3m6wk")
 
-[node name="Enemy2" parent="." instance=ExtResource("2_05ke4")]
+[node name="Enemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_05ke4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.87834, 0.000500679, -2.34543)
+player = NodePath("../Player")
+
+[node name="Enemy2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_05ke4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.83508, 0.000500679, 0.357605)
+player = NodePath("../Player")
 
-[node name="Enemy3" parent="." instance=ExtResource("2_05ke4")]
+[node name="Enemy3" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_05ke4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.36033, 0.000499725, 5.46751)
+player = NodePath("../Player")
 
-[node name="Enemy4" parent="." instance=ExtResource("2_05ke4")]
+[node name="Enemy4" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_05ke4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.81761, 0.000498772, 0.385788)
+player = NodePath("../Player")
 
-[node name="Enemy5" parent="." instance=ExtResource("2_05ke4")]
+[node name="Enemy5" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_05ke4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.811813, 0.000499725, 3.56112)
+player = NodePath("../Player")

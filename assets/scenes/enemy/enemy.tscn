@@ -1,15 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://btrrbwknpdyt8"]
+[gd_scene load_steps=7 format=3 uid="uid://btrrbwknpdyt8"]
 
 [ext_resource type="Script" path="res://assets/scenes/enemy/enemy.gd" id="1_wg2nr"]
 [ext_resource type="FontFile" uid="uid://cwpt2uuf6can2" path="res://assets/theme/fonts/GraffitiYouth-Regular.otf" id="2_d6oo5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ssdw4"]
 albedo_color = Color(1, 0.0666667, 0.180392, 1)
+distance_fade_max_distance = 1.0
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_lutjp"]
 material = SubResource("StandardMaterial3D_ssdw4")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mjy3u"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_o8f08"]
 
 [node name="Enemy" type="CharacterBody3D" groups=["enemy", "hittable"]]
 script = ExtResource("1_wg2nr")
@@ -37,4 +40,13 @@ vertical_alignment = 2
 
 [node name="SpeechTimer" type="Timer" parent="."]
 
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 1.499, -0.419796)
+mesh = SubResource("BoxMesh_o8f08")
+
+[node name="DirectionTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
 [connection signal="timeout" from="SpeechTimer" to="." method="_on_speech_timer_timeout"]
+[connection signal="timeout" from="DirectionTimer" to="." method="_on_direction_timer_timeout"]

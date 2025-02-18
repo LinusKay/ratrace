@@ -385,7 +385,7 @@ shader_parameter/distort_intensity = 0.0
 shader_parameter/aberration = 0.03
 shader_parameter/noise_opacity = 0.2
 shader_parameter/noise_speed = 5.0
-shader_parameter/static_noise_intensity = 0.3
+shader_parameter/static_noise_intensity = 0.2
 shader_parameter/pixelate = true
 shader_parameter/discolor = true
 shader_parameter/warp_amount = 0.0
@@ -396,7 +396,7 @@ shader_parameter/vignette_opacity = 0.1
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_mt0ap"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yfyrm"]
-font_size = 12
+font_size = 10
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_c48h2"]
 animations = [{
@@ -621,12 +621,28 @@ offset_right = 150.0
 offset_bottom = 100.0
 texture = SubResource("PlaceholderTexture2D_mt0ap")
 
+[node name="ColorRect" type="ColorRect" parent="PlayerHeadCameraRect"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -77.0
+offset_top = -52.0
+offset_right = 77.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
 [node name="Label" type="Label" parent="PlayerHeadCameraRect"]
 z_index = 1
 layout_mode = 0
-offset_top = 100.273
+offset_top = 85.2319
 offset_right = 140.0
-offset_bottom = 117.273
+offset_bottom = 102.232
 text = "Unregistered HyperCam"
 label_settings = SubResource("LabelSettings_yfyrm")
 
@@ -636,6 +652,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -18.0
+offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
