@@ -98,7 +98,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_avadn")
 
 [node name="Collision" type="CollisionShape3D" parent="."]

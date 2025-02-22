@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bv6k8r2wleltm"]
+
+[ext_resource type="PackedScene" uid="uid://ctosctrlwmge2" path="res://assets/models/atm/atm_graf.glb" id="1_nxopw"]
+
+[node name="atm_graf" instance=ExtResource("1_nxopw")]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0296631, 0.80069, 0)
+visible = false
+use_collision = true
+size = Vector3(0.597412, 1.58392, 0.669922)

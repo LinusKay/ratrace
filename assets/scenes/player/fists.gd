@@ -9,6 +9,10 @@ var emote_bank: Array = ["emote_watch", "emote_thumbs_up", "emote_newspaper", "e
 var emotes: Array = emote_bank.duplicate()
 var emote_previous: Array = []
 
+var punch_bank: Array = ["punch_left", "punch_right", "kick_right"]
+var punches: Array = punch_bank.duplicate()
+var punch_previous: Array = []
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	play("idle_fists")
@@ -49,7 +53,13 @@ func emote() -> void:
 		emotes = emote_bank.duplicate()
 
 func punch() -> void:
-	play("punch_left")
+	var punch: String = punches.pick_random()
+	play(punch)
+	if(punches.size() > 1):
+		punches.erase(punch)
+		punch_previous.append(punch)
+	else:
+		punches = punch_bank.duplicate()
 
 func regret() -> void:
 	play("regret")

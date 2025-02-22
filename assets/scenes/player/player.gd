@@ -28,12 +28,12 @@ const JUMP_VELOCITY = 4.5
 const SENSITIVITY = 0.002
 const BOB_FREQ = 2.0
 const BOB_AMP = 0.08
-const BASE_FOV = 75.0
+const BASE_FOV = 90.0
 const FOV_CHANGE = 1.5
 const CAMERA_LIMIT_DOWN = -60
 const CAMERA_LIMIT_UP = 80
 const MELEE_DAMAGE = 10000
-const COMBO_TIMEOUT = 1.0
+const COMBO_TIMEOUT = 2.0
 const EMOTE_TIMEOUT = 1.0
 
 var wealth: float = 1000
@@ -114,7 +114,6 @@ func _physics_process(delta: float) -> void:
 		desired_speed = SLIDE_SPEED - (SLIDE_TIME / $SlideTimer.time_left)
 		
 	if is_sliding or !is_on_floor(): 
-		print('dfgdfgfdg')
 		hud.get_node("PlayerHeadCameraRect/TVRect").material.set_shader_parameter("distort_intensity", 0.2)
 		hud.get_node("PlayerHeadCameraRect/TVRect").material.set_shader_parameter("roll_speed", 16)
 	else:
@@ -163,7 +162,6 @@ func melee() -> void:
 	fists.punch()
 	audio_controller.play_sfx(sfx_swish)
 	for body: Object in hitbox.get_overlapping_bodies():
-		print(body)
 		if body.is_in_group("hittable"):
 			audio_controller.play_sfx_random(sfxgroup_hit)
 		if body.is_in_group("enemy"):
@@ -172,6 +170,9 @@ func melee() -> void:
 			if enemy_killed > 0:
 				wealth += enemy_killed * combo_count/10
 				fists.regret()
+
+func hurt(_damage: float) -> void:
+	wealth -= _damage
 
 func melee_success() -> void:
 	combo_increase()

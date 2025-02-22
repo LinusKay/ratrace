@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://c5ndh5x0xttcc"]
+[gd_scene load_steps=83 format=3 uid="uid://c5ndh5x0xttcc"]
 
 [ext_resource type="Script" path="res://assets/scenes/hud/hud.gd" id="1_f571p"]
 [ext_resource type="FontFile" uid="uid://cwpt2uuf6can2" path="res://assets/theme/fonts/GraffitiYouth-Regular.otf" id="2_f583t"]
@@ -16,14 +16,19 @@
 [ext_resource type="Texture2D" uid="uid://ckv5rji4t0k6r" path="res://assets/sprites/emote_newspaper.png" id="10_wkjx0"]
 [ext_resource type="Texture2D" uid="uid://bpdm6ixywimn5" path="res://assets/sprites/hand_watch.png" id="11_wkreb"]
 [ext_resource type="Texture2D" uid="uid://csf5rarxcvqqf" path="res://assets/sprites/fists_hold.png" id="12_tejdv"]
+[ext_resource type="Texture2D" uid="uid://ddi5slw4ql5pd" path="res://assets/sprites/thumbs_up_half.png" id="13_3ypmf"]
 [ext_resource type="Texture2D" uid="uid://6dy05cabpr4k" path="res://assets/sprites/fists_punch_left.png" id="13_tpv4m"]
 [ext_resource type="Texture2D" uid="uid://bgf1lq4xy21g4" path="res://assets/sprites/fists_punch_right.png" id="14_yaw0f"]
 [ext_resource type="Texture2D" uid="uid://3kiu4vl6y4ff" path="res://assets/sprites/hands_regret.png" id="15_gw2do"]
 [ext_resource type="Texture2D" uid="uid://dxv7snjwi24m3" path="res://assets/sprites/run_left.png" id="16_8a301"]
+[ext_resource type="Texture2D" uid="uid://cy74vuwe7kr62" path="res://assets/sprites/kick_left_half.png" id="17_43bem"]
 [ext_resource type="Texture2D" uid="uid://bm2832qruxrru" path="res://assets/sprites/run_left_half.png" id="17_lthsh"]
 [ext_resource type="Texture2D" uid="uid://da7xvqrsqjhmn" path="res://assets/sprites/run_right.png" id="18_3x66p"]
+[ext_resource type="Texture2D" uid="uid://b1td0gn4feu3b" path="res://assets/sprites/kick_left.png" id="18_yq68k"]
 [ext_resource type="Texture2D" uid="uid://jxrt0r8yi6fo" path="res://assets/sprites/run_right_half.png" id="19_2xq5m"]
+[ext_resource type="Texture2D" uid="uid://cweiyi71ridnu" path="res://assets/sprites/kick_right_half.png" id="19_q62qo"]
 [ext_resource type="Script" path="res://assets/scenes/player/fists.gd" id="20_a05k8"]
+[ext_resource type="Texture2D" uid="uid://d1ttfbiq843q2" path="res://assets/sprites/kick_right.png" id="20_h0eyt"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8r3g4"]
 font = ExtResource("2_f583t")
@@ -47,6 +52,37 @@ shadow_color = Color(1, 0, 0, 0)
 
 [sub_resource type="Theme" id="Theme_58rb6"]
 default_font_size = 15
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_xn2js"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_67r1v"]
+shader = ExtResource("8_f3pym")
+shader_parameter/overlay = true
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/brightness = 1.3
+shader_parameter/scanlines_opacity = 0.1
+shader_parameter/scanlines_width = 0.1
+shader_parameter/grille_opacity = 0.1
+shader_parameter/roll = true
+shader_parameter/roll_speed = 4.0
+shader_parameter/roll_size = 3.0
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.0
+shader_parameter/aberration = 0.03
+shader_parameter/noise_opacity = 0.2
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.2
+shader_parameter/pixelate = true
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.1
+shader_parameter/vignette_opacity = 0.1
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_mt0ap"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yfyrm"]
+font_size = 10
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sgkcv"]
 atlas = ExtResource("5_ito0k")
@@ -367,41 +403,10 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_xn2js"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_67r1v"]
-shader = ExtResource("8_f3pym")
-shader_parameter/overlay = true
-shader_parameter/resolution = Vector2(640, 480)
-shader_parameter/brightness = 1.3
-shader_parameter/scanlines_opacity = 0.1
-shader_parameter/scanlines_width = 0.1
-shader_parameter/grille_opacity = 0.1
-shader_parameter/roll = true
-shader_parameter/roll_speed = 4.0
-shader_parameter/roll_size = 3.0
-shader_parameter/roll_variation = 1.8
-shader_parameter/distort_intensity = 0.0
-shader_parameter/aberration = 0.03
-shader_parameter/noise_opacity = 0.2
-shader_parameter/noise_speed = 5.0
-shader_parameter/static_noise_intensity = 0.2
-shader_parameter/pixelate = true
-shader_parameter/discolor = true
-shader_parameter/warp_amount = 0.0
-shader_parameter/clip_warp = false
-shader_parameter/vignette_intensity = 0.1
-shader_parameter/vignette_opacity = 0.1
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_mt0ap"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_yfyrm"]
-font_size = 10
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_c48h2"]
 animations = [{
 "frames": [{
-"duration": 0.4,
+"duration": 0.2,
 "texture": ExtResource("9_anmr3")
 }, {
 "duration": 1.0,
@@ -423,12 +428,15 @@ animations = [{
 "speed": 2.0
 }, {
 "frames": [{
+"duration": 0.2,
+"texture": ExtResource("13_3ypmf")
+}, {
 "duration": 1.0,
 "texture": ExtResource("10_o3tyl")
 }],
 "loop": false,
 "name": &"emote_thumbs_up",
-"speed": 1.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -447,12 +455,34 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
+"duration": 0.3,
+"texture": ExtResource("17_43bem")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_yq68k")
+}],
+"loop": false,
+"name": &"kick_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.3,
+"texture": ExtResource("19_q62qo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_h0eyt")
+}],
+"loop": false,
+"name": &"kick_right",
+"speed": 5.0
+}, {
+"frames": [{
 "duration": 1.0,
 "texture": ExtResource("13_tpv4m")
 }],
 "loop": false,
 "name": &"punch_left",
-"speed": 5.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -460,7 +490,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"punch_right",
-"speed": 5.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -507,7 +537,6 @@ mouse_filter = 2
 script = ExtResource("1_f571p")
 
 [node name="WealthLabel" type="Label" parent="."]
-visible = false
 z_index = 1
 y_sort_enabled = true
 layout_mode = 0
@@ -585,24 +614,6 @@ background_color = Color(0.0196078, 0.0784314, 0.156863, 0)
 unique_name_in_owner = true
 autostart = true
 
-[node name="MascotSprite" type="AnimatedSprite2D" parent="."]
-visible = false
-position = Vector2(1128, 576)
-sprite_frames = SubResource("SpriteFrames_4mmrr")
-animation = &"polyfox"
-
-[node name="MascotSprite2" type="AnimatedSprite2D" parent="."]
-visible = false
-position = Vector2(1078, 572)
-sprite_frames = SubResource("SpriteFrames_4mmrr")
-animation = &"malpal"
-
-[node name="MascotSprite3" type="AnimatedSprite2D" parent="."]
-visible = false
-position = Vector2(1052, 612)
-sprite_frames = SubResource("SpriteFrames_4mmrr")
-animation = &"srimp"
-
 [node name="PlayerHeadCameraRect" type="TextureRect" parent="."]
 layout_mode = 1
 offset_left = 15.0
@@ -658,13 +669,26 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 492.0
-offset_top = 5.0
-offset_right = 635.0
-offset_bottom = 28.0
-text = "Have a Happy day!"
+[node name="MascotSpritePolyfox" type="AnimatedSprite2D" parent="PlayerHeadCameraRect"]
+visible = false
+position = Vector2(23.3531, 127.347)
+scale = Vector2(1.01535, 1.00273)
+sprite_frames = SubResource("SpriteFrames_4mmrr")
+animation = &"polyfox"
+
+[node name="MascotSprite2" type="AnimatedSprite2D" parent="PlayerHeadCameraRect"]
+visible = false
+position = Vector2(1079.32, 559.522)
+scale = Vector2(1.01535, 1.00273)
+sprite_frames = SubResource("SpriteFrames_4mmrr")
+animation = &"malpal"
+
+[node name="MascotSprite3" type="AnimatedSprite2D" parent="PlayerHeadCameraRect"]
+visible = false
+position = Vector2(1052.92, 599.632)
+scale = Vector2(1.01535, 1.00273)
+sprite_frames = SubResource("SpriteFrames_4mmrr")
+animation = &"srimp"
 
 [node name="FistPlacement" type="Control" parent="."]
 layout_mode = 1
@@ -683,7 +707,7 @@ grow_vertical = 0
 [node name="FistSprite" type="AnimatedSprite2D" parent="FistPlacement"]
 scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_c48h2")
-animation = &"emote_thumbs_up"
+animation = &"kick_left"
 script = ExtResource("20_a05k8")
 
 [connection signal="timeout" from="WealthGraph/WealthGraphTimer" to="." method="_on_wealth_graph_timer_timeout"]

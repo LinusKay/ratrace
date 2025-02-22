@@ -4,10 +4,17 @@ extends CharacterBody3D
 @export var wealth: int = 100000
 @export var wealth_reward: int = 100000
 
+@onready var hitbox: Area3D = %Hitbox
+
+var melee_damage: int = wealth * 0.1
+
 var is_staring: bool = false
 var is_speaking: bool = false
 var wealth_min: int = 10000
 var wealth_max: int = 1000000
+
+var knockback_velocity: Vector3 = Vector3.ZERO
+var knockback_timer: float = 0.0
 
 var speed: float = 2.0
 var speed_min: float = 1.0
@@ -20,10 +27,11 @@ var rotation_goal: Quaternion
 var activities: Array[String] = [
 	"stand",
 	"roam",
-	"stare",
 	#"chase"
 ]
-var activity: String = activities.pick_random()
+@export_enum("random", "stand", "roam", "chase") var activity: String = "random"
+
+#var activity: String = activities.pick_random()
 var hurt_reaction: String
 
 var personality_bank: Dictionary = {
@@ -164,6 +172,7 @@ var personality: String = personality_bank.keys().pick_random()
 
 func _ready() -> void:
 	is_staring = false
+	if activity == "random": activity = activities.pick_random()
 	look_random()
 	hurt_reaction = personality_bank[personality]["hurt_reaction"].pick_random()
 	if personality_bank[personality]["wealth"] != []:
@@ -175,20 +184,42 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	$WealthLabel.text = "$" + str(wealth)
+
+	# Handle knockback
+	if knockback_timer > 0:
+		velocity += knockback_velocity
+		knockback_timer -= delta
+		knockback_velocity *= 0.2  # Reduce knockback over time for a smoother effect
+	else:
+		knockback_velocity = Vector3.ZERO  # Reset knockback force
+
+	# If knockback is active, override movement logic
+	if knockback_timer <= 0:
+		if is_staring:
+			set_rotation_goal_to_player()
+		
+		if activity == "stand":
+			velocity = Vector3.ZERO
+			if global_position.distance_to(player.global_position) < 3.0:
+				is_staring = true
+			else: 
+				is_staring = false
+			
+		elif activity == "roam":
+			velocity = -basis.z * speed
+			
+		elif activity == "chase":
+			set_rotation_goal_to_player()
+			velocity = -basis.z * speed_chase
+			if %AttackTimer.is_stopped():
+				for body: Object in hitbox.get_overlapping_bodies():
+					if body.is_in_group("player"):
+						_attack()
+
+	# Apply gravity if not on the floor
+	if not is_on_floor():
+		velocity += get_gravity() * delta * 10
 	
-	if is_staring:
-		set_rotation_goal_to_player()
-	
-	if activity == "stand":
-		velocity = Vector3.ZERO
-		if global_position.distance_to(player.global_position) < 3.0:
-			is_staring = true
-		else: is_staring = false
-	elif activity == "roam":
-		velocity = -basis.z * speed
-	elif activity == "chase":
-		set_rotation_goal_to_player()
-		velocity = -basis.z * speed_chase
 	rotate_towards(rotation_goal, delta)
 	move_and_slide()
 
@@ -207,10 +238,10 @@ func set_rotation_goal_to_player() -> void:
 	var target_quat: Quaternion = Quaternion(Basis().looking_at(direction_to_player, Vector3.UP))
 	rotation_goal = target_quat  # Set the rotation goal to face the player
 
-
 func hurt(_damage: int) -> float: 
 	_react_hurt()
 	wealth -= _damage
+
 	if wealth <= 0:
 		die()
 		return wealth_reward
@@ -220,6 +251,12 @@ func hurt(_damage: int) -> float:
 
 func _react_hurt() -> void:
 	_speak_hurt()
+	
+	# Apply knockback force away from the player
+	var knockback_direction: Vector3 = (global_transform.origin - player.global_transform.origin).normalized()
+	knockback_velocity = knockback_direction * 5.0  # Increase this value if needed
+	knockback_timer = 0.1  # Duration of knockback effect
+
 	if hurt_reaction == "fight":
 		activity = "chase"
 
@@ -241,6 +278,11 @@ func _speak_hurt() -> void:
 	is_speaking = true
 
 
+func _attack() -> void:
+	player.hurt(melee_damage)
+	var next_attack: float = randf_range(1.0, 3.0)
+	%AttackTimer.start(next_attack)
+
 func _on_speech_timer_timeout() -> void:
 	if is_speaking:
 		$SpeechLabel.hide()
@@ -254,5 +296,11 @@ func _on_direction_timer_timeout() -> void:
 	if activity == "roam":
 		look_random()
 		speed = randf_range(speed_min, speed_max)
-		var timer_rand: float = randf_range(1.0, 5.0)
+		var timer_rand: float = randf_range(1.0, 15.0)
 		$DirectionTimer.start(timer_rand)
+
+
+#func _on_attack_timer_timeout() -> void:
+	#if activity == "chase":
+		#%AttackTimer.start(1.0)
+		#_attack()

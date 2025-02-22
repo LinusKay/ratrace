@@ -3,6 +3,8 @@ class_name UI
 
 @export var player: CharacterBody3D
 
+@onready var mascot_polyfox: AnimatedSprite2D = $PlayerHeadCameraRect/MascotSpritePolyfox
+
 var wealth_tracker: Array = []
 var wealth_plot: RefCounted
 var wealth: int = 0
@@ -12,10 +14,11 @@ var plot_colour: Color = Color.RED
 func _ready() -> void:
 	update_combo(0)
 	ready_wealth_graph()
-	$MascotSprite.play("polyfox")
-	$MascotSprite2.play("malpal")
-	$MascotSprite3.play("srimp")
+	mascot_polyfox.play("polyfox")
+	#$MascotSprite2.play("malpal")
+	#$MascotSprite3.play("srimp")
 	$PlayerHeadCameraRect.texture = player.get_node("Head/HeadCameraViewport").get_texture()
+	#mascot_polyfox.play("polyfox")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -25,20 +28,24 @@ func update_combo(_combo_count: int) -> void:
 	$ComboLabel.text = "" + str(_combo_count)
 	$ComboLabel.label_settings.font_size = randi_range(75, 120)
 	$ComboLabel.rotation = randf_range(-.2, .5)
-	if(_combo_count >= 0):
-		$ComboLabel.label_settings.font_color = Color.WHITE
-	if(_combo_count >= 5):
-		$ComboLabel.label_settings.font_color = Color.LIGHT_YELLOW
-	if(_combo_count >= 10):
-		$ComboLabel.label_settings.font_color = Color.YELLOW
-	if(_combo_count >= 15):
-		$ComboLabel.label_settings.font_color = Color.ORANGE
-	if(_combo_count >= 20):
-		$ComboLabel.label_settings.font_color = Color.ROYAL_BLUE
-	if(_combo_count >= 25):
-		$ComboLabel.label_settings.font_color = Color.BLUE
-	if(_combo_count >= 30):
-		$ComboLabel.label_settings.font_color = Color.PURPLE
+	update_combo_colour(_combo_count)
+
+func update_combo_colour(_combo_count: int) -> void:
+	var colors: Array[Color] = [
+		Color.WHITE,       # 0+
+		Color.LIGHT_YELLOW, # 5+
+		Color.YELLOW,       # 10+
+		Color.ORANGE,       # 15+
+		Color.ROYAL_BLUE,   # 20+
+		Color.BLUE,         # 25+
+		Color.PURPLE,        # 30+
+		Color.PINK,
+		Color.HOT_PINK,
+		Color.DEEP_PINK,
+		Color.RED,
+	]
+
+	$ComboLabel.label_settings.font_color = colors[min(_combo_count / 5, colors.size() - 1)]
 
 func update_wealth(_wealth: int) -> void:
 	wealth = _wealth
