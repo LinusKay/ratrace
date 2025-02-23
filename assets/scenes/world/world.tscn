@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://blxnjiirj3l07"]
+[gd_scene load_steps=36 format=3 uid="uid://blxnjiirj3l07"]
 
 [ext_resource type="PackedScene" uid="uid://bah8rlvotmage" path="res://assets/scenes/player/player.tscn" id="1_bqxxq"]
 [ext_resource type="PackedScene" uid="uid://btrrbwknpdyt8" path="res://assets/scenes/enemy/enemy.tscn" id="2_05ke4"]
@@ -17,6 +17,8 @@
 [ext_resource type="Texture2D" uid="uid://cwcin52h4ipv7" path="res://assets/sprites/decals/decal_money.png" id="15_8rcdg"]
 [ext_resource type="Texture2D" uid="uid://ch0ui0xiee2pm" path="res://assets/sprites/decals/decal_goblin.png" id="15_pnsoe"]
 [ext_resource type="Texture2D" uid="uid://2h3owmx20rn4" path="res://assets/sprites/decals/decal_freddy.png" id="16_j4pgj"]
+[ext_resource type="Texture2D" uid="uid://c5fkqmp5x2o2d" path="res://assets/sprites/decals/decal_yellowwoman.png" id="17_7aq0k"]
+[ext_resource type="Texture2D" uid="uid://crj7pk64dsd0k" path="res://assets/sprites/decals/decal_cthulhu.png" id="17_aivan"]
 [ext_resource type="Texture2D" uid="uid://bymgey4qr2si1" path="res://assets/sprites/decals/decal_robofella.png" id="17_f10dt"]
 [ext_resource type="Texture2D" uid="uid://wwhcaq8q85st" path="res://assets/sprites/decals/decal_devil.png" id="17_h33g4"]
 [ext_resource type="Texture2D" uid="uid://bms1jtc4okvan" path="res://assets/sprites/decals/decal_skid.png" id="17_lnfjx"]
@@ -34,6 +36,8 @@ sky_horizon_color = Color(0.455843, 0.373351, 0.334332, 1)
 sky_curve = 0.235375
 ground_bottom_color = Color(0.100316, 0.0812793, 0.0591645, 1)
 ground_horizon_color = Color(0.246065, 0.25269, 0.263148, 1)
+sun_angle_max = 28.7
+sun_curve = 0.0588439
 
 [sub_resource type="Sky" id="Sky_kxoal"]
 sky_material = SubResource("ProceduralSkyMaterial_j25at")
@@ -294,8 +298,25 @@ lower_fade = 0.00874719
 distance_fade_enabled = true
 cull_mask = 1047553
 
+[node name="DecalYellowWoman" type="Decal" parent="."]
+transform = Transform3D(0.000652978, 1.95985, -0.00050185, -0.00149903, -0.000501381, -1.95985, -1.95985, 0.000653339, 0.00149887, -20.9143, 4.80097, 13.0973)
+sorting_offset = -1.0
+size = Vector3(2.39844, 3, 2.37219)
+texture_albedo = ExtResource("17_aivan")
+upper_fade = 0.0027872
+lower_fade = 0.00874719
+distance_fade_enabled = true
+cull_mask = 1047553
+
+[node name="DecalYellowWoman2" type="Decal" parent="."]
+transform = Transform3D(0.000652978, 1.95985, -0.00050185, -0.00149903, -0.000501381, -1.95985, -1.95985, 0.000653339, 0.00149887, -40.8879, 100.765, 15.8942)
+sorting_offset = -1.0
+size = Vector3(30.655, 3, 26.8696)
+texture_albedo = ExtResource("17_7aq0k")
+cull_mask = 1047553
+
 [node name="DecalRoboFella" type="Decal" parent="."]
-transform = Transform3D(1.45244, -0.000428459, 0.216763, 0.216763, -0.00044417, -1.45244, 0.000489345, 1.46853, -0.000376039, -14.6525, 6.42916, 8.53064)
+transform = Transform3D(0.000112231, 0.281384, -9.61513e-05, 0.049721, -8.51073e-05, -0.371373, -0.333161, 8.20846e-05, -0.0554237, -18.2569, 3.22151, 16.5896)
 sorting_offset = -1.0
 size = Vector3(3, 3, 3)
 texture_albedo = ExtResource("17_f10dt")
@@ -304,7 +325,7 @@ lower_fade = 0.00874719
 distance_fade_enabled = true
 cull_mask = 1047553
 
-[node name="DecalRoboFella2" type="Decal" parent="."]
+[node name="DecalBuddy" type="Decal" parent="."]
 transform = Transform3D(7.91981e-08, 0.603947, 2.63994e-08, 2.30791e-15, 2.63994e-08, -0.603947, -0.603947, 7.91981e-08, 1.15395e-15, 22.9541, 5.76722, 6.89899)
 sorting_offset = -1.0
 size = Vector3(3, 0.516846, 3)
@@ -314,8 +335,8 @@ lower_fade = 0.00874719
 distance_fade_enabled = true
 cull_mask = 1047553
 
-[node name="DecalRoboFella3" type="Decal" parent="."]
-transform = Transform3D(7.91981e-08, 0.603947, 2.63994e-08, 2.30791e-15, 2.63994e-08, -0.603947, -0.603947, 7.91981e-08, 1.15395e-15, 22.9541, 4.42136, 8.12003)
+[node name="DecalBuddy" type="Decal" parent="DecalBuddy"]
+transform = Transform3D(1, -1.42109e-14, -4.23516e-22, 0, 1, 2.50556e-22, 0, 2.50556e-22, 1, -2.02176, 0, 2.22844)
 sorting_offset = -1.0
 size = Vector3(3, 0.516846, 3)
 texture_albedo = ExtResource("19_41rkn")
@@ -324,8 +345,8 @@ lower_fade = 0.00874719
 distance_fade_enabled = true
 cull_mask = 1047553
 
-[node name="DecalRoboFella4" type="Decal" parent="."]
-transform = Transform3D(7.91981e-08, 0.603947, 2.63994e-08, 2.30791e-15, 2.63994e-08, -0.603947, -0.603947, 7.91981e-08, 1.15395e-15, 22.9541, 6.32422, 8.72911)
+[node name="DecalBuddy2" type="Decal" parent="DecalBuddy"]
+transform = Transform3D(1, -1.42109e-14, -4.23516e-22, 0, 1, 2.50556e-22, 0, 2.50556e-22, 1, -3.03026, 0, -0.922272)
 sorting_offset = -1.0
 size = Vector3(3, 0.516846, 3)
 texture_albedo = ExtResource("20_xltcj")

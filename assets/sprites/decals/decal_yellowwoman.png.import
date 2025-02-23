@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://denagaxhdqvbx"
-path.s3tc="res://.godot/imported/decal_liberal.jpg-735d1dc6bf7a248410d63cca156b1bd7.s3tc.ctex"
+uid="uid://c5fkqmp5x2o2d"
+path.s3tc="res://.godot/imported/decal_yellowwoman.png-5e8bf3948e4881f5f86940b7dba478f8.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/sprites/decals/decal_liberal.jpg"
-dest_files=["res://.godot/imported/decal_liberal.jpg-735d1dc6bf7a248410d63cca156b1bd7.s3tc.ctex"]
+source_file="res://assets/sprites/decals/decal_yellowwoman.png"
+dest_files=["res://.godot/imported/decal_yellowwoman.png-5e8bf3948e4881f5f86940b7dba478f8.s3tc.ctex"]
 
 [params]
 
