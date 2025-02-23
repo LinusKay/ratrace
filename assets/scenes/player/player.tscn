@@ -99,6 +99,8 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]
+collision_layer = 2
+collision_mask = 7
 script = ExtResource("1_avadn")
 
 [node name="Collision" type="CollisionShape3D" parent="."]
@@ -122,6 +124,8 @@ spring_length = 0.0
 [node name="Hitbox" type="Area3D" parent="Head/SpringArm3D/Camera3D"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00323176, -1.35708)
+collision_layer = 2
+collision_mask = 7
 
 [node name="HitboxCollision" type="CollisionShape3D" parent="Head/SpringArm3D/Camera3D/Hitbox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.414002)

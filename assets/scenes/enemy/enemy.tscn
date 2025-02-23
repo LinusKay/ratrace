@@ -18,10 +18,13 @@ material = SubResource("StandardMaterial3D_ssdw4")
 size = Vector3(0.785156, 0.923584, 2.18415)
 
 [node name="Enemy" type="CharacterBody3D" groups=["enemy", "hittable"]]
+collision_layer = 4
+collision_mask = 3
 script = ExtResource("1_wg2nr")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+layers = 4
 mesh = SubResource("CapsuleMesh_lutjp")
 skeleton = NodePath("../CollisionShape3D")
 
@@ -31,6 +34,7 @@ shape = SubResource("CapsuleShape3D_mjy3u")
 
 [node name="WealthLabel" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.24932, 0)
+layers = 4
 billboard = 1
 text = "WEALTH"
 font = ExtResource("2_d6oo5")
@@ -38,6 +42,7 @@ font_size = 50
 
 [node name="SpeechLabel" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.40716, 0)
+layers = 4
 billboard = 1
 vertical_alignment = 2
 
@@ -45,6 +50,7 @@ vertical_alignment = 2
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 1.499, -0.419796)
+layers = 4
 mesh = SubResource("BoxMesh_o8f08")
 
 [node name="DirectionTimer" type="Timer" parent="."]
@@ -54,6 +60,8 @@ autostart = true
 [node name="Hitbox" type="Area3D" parent="."]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.41399, -1.35708)
+collision_layer = 4
+collision_mask = 7
 
 [node name="HitboxCollision" type="CollisionShape3D" parent="Hitbox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.414002)

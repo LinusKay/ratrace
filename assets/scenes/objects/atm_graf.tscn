@@ -4,7 +4,7 @@
 
 [node name="atm_graf" instance=ExtResource("1_nxopw")]
 
-[node name="CSGBox3D" type="CSGBox3D" parent="." index="1"]
+[node name="CSGBox3D" type="CSGBox3D" parent="." index="1" groups=["hittable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0296631, 0.80069, 0)
 visible = false
 use_collision = true

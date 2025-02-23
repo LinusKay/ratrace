@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://blxnjiirj3l07"]
+[gd_scene load_steps=34 format=3 uid="uid://blxnjiirj3l07"]
 
 [ext_resource type="PackedScene" uid="uid://bah8rlvotmage" path="res://assets/scenes/player/player.tscn" id="1_bqxxq"]
 [ext_resource type="PackedScene" uid="uid://btrrbwknpdyt8" path="res://assets/scenes/enemy/enemy.tscn" id="2_05ke4"]
@@ -17,8 +17,16 @@
 [ext_resource type="Texture2D" uid="uid://cwcin52h4ipv7" path="res://assets/sprites/decals/decal_money.png" id="15_8rcdg"]
 [ext_resource type="Texture2D" uid="uid://ch0ui0xiee2pm" path="res://assets/sprites/decals/decal_goblin.png" id="15_pnsoe"]
 [ext_resource type="Texture2D" uid="uid://2h3owmx20rn4" path="res://assets/sprites/decals/decal_freddy.png" id="16_j4pgj"]
+[ext_resource type="Texture2D" uid="uid://bymgey4qr2si1" path="res://assets/sprites/decals/decal_robofella.png" id="17_f10dt"]
+[ext_resource type="Texture2D" uid="uid://wwhcaq8q85st" path="res://assets/sprites/decals/decal_devil.png" id="17_h33g4"]
+[ext_resource type="Texture2D" uid="uid://bms1jtc4okvan" path="res://assets/sprites/decals/decal_skid.png" id="17_lnfjx"]
 [ext_resource type="Texture2D" uid="uid://sev1wr1qoixu" path="res://assets/sprites/decals/decal_fishstix2.png" id="17_ysuqv"]
+[ext_resource type="Texture2D" uid="uid://bdkrunna7xl8p" path="res://assets/sprites/decals/decal_pets.png" id="18_ipmcg"]
+[ext_resource type="Texture2D" uid="uid://kqedtiyygusf" path="res://assets/sprites/decals/decal_budsquare1.png" id="18_vokfd"]
+[ext_resource type="Texture2D" uid="uid://bdvk2l2pwfidq" path="res://assets/sprites/decals/decal_budsquare2.png" id="19_41rkn"]
 [ext_resource type="Script" path="res://assets/scenes/world/enemy_spawner.gd" id="19_vmiy3"]
+[ext_resource type="Texture2D" uid="uid://didqbpxd1ahn2" path="res://assets/sprites/decals/decal_budsquare3.png" id="20_xltcj"]
+[ext_resource type="PackedScene" uid="uid://eepj26vxeybt" path="res://assets/scenes/objects/mp3player.tscn" id="27_ecqsp"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_j25at"]
 sky_top_color = Color(0.217189, 0.44698, 0.610555, 1)
@@ -59,6 +67,7 @@ albedo_texture = ExtResource("11_xxhuy")
 uv1_scale = Vector3(2, 2, 2)
 
 [sub_resource type="BoxMesh" id="BoxMesh_7i7r4"]
+lightmap_size_hint = Vector2i(14, 21)
 material = SubResource("StandardMaterial3D_uwk68")
 add_uv2 = true
 
@@ -68,7 +77,7 @@ add_uv2 = true
 environment = SubResource("Environment_gkuor")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.753248, -0.544243, -0.369346, 0.0682191, -0.493868, 0.866857, -0.654189, -0.678155, -0.334877, 0, 7.62232, 0)
+transform = Transform3D(0.920295, -0.304352, -0.245821, 0.0682191, -0.493868, 0.866857, -0.385232, -0.814533, -0.433741, 0, 7.62232, 0)
 shadow_enabled = true
 
 [node name="HUD" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_aehdl")]
@@ -93,14 +102,14 @@ transform = Transform3D(-0.930961, -0.00141651, -0.36511, -0.00138013, 1, -0.000
 [node name="Shipping Container3" parent="Shipping Container" instance=ExtResource("5_wc4v3")]
 transform = Transform3D(0.242284, -0.96556, 0.0948456, -0.898882, -0.260187, -0.352576, 0.36511, 0.000168207, -0.930966, 3.19649, 1.9659, 1.67446)
 
-[node name="Vending Machine" parent="." instance=ExtResource("6_5k0fr")]
-transform = Transform3D(1.42996, 0, -0.453006, 0, 1.5, 0, 0.453006, 0, 1.42996, -1, 0, -2)
+[node name="Vending Machine" parent="." groups=["hittable"] instance=ExtResource("6_5k0fr")]
+transform = Transform3D(1.42996, 0, -0.453006, 0, 1.5, 0, 0.453006, 0, 1.42996, -1, 0, -3.69908)
 
-[node name="Vending Machine2" parent="Vending Machine" instance=ExtResource("6_5k0fr")]
-transform = Transform3D(-0.644514, 0.52245, -0.558251, 0.181341, 0.813753, 0.552201, 0.742773, 0.254669, -0.619219, -4.81758, 0.773373, 0.434217)
+[node name="Vending Machine2" parent="Vending Machine" groups=["hittable"] instance=ExtResource("6_5k0fr")]
+transform = Transform3D(-0.644514, 0.52245, -0.558251, 0.181341, 0.813753, 0.552201, 0.742773, 0.254669, -0.619219, -3.2118, 0.259288, 0.417066)
 
-[node name="Vending Machine3" parent="Vending Machine" instance=ExtResource("6_5k0fr")]
-transform = Transform3D(0.287137, 0.955635, -0.0656588, 0.210342, 0.00396896, 0.97762, 0.934512, -0.29452, -0.199871, -2.82537, 1.34374, 2.48333)
+[node name="Vending Machine3" parent="Vending Machine" groups=["hittable"] instance=ExtResource("6_5k0fr")]
+transform = Transform3D(0.287137, 0.955635, -0.0656588, 0.210342, 0.00396896, 0.977621, 0.934512, -0.29452, -0.199871, -1.99416, 0.479554, 0.726957)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(0.730145, 0.491324, -0.474857, 0.173568, 0.538797, 0.824362, 0.66088, -0.684324, 0.308122, 3.57628e-07, 7, -1.93968)
@@ -126,13 +135,13 @@ visible = false
 modulate = Color(1, 1, 1, 0.270588)
 texture = ExtResource("8_3m6wk")
 
-[node name="ATM" parent="." instance=ExtResource("9_k52f1")]
-transform = Transform3D(0.828403, 0, -0.560133, 0, 1, 0, 0.560133, 0, 0.828403, -7.80481, 0.0156074, -0.526642)
+[node name="ATM" parent="." groups=["hittable"] instance=ExtResource("9_k52f1")]
+transform = Transform3D(0.979642, 0, -0.200753, 0, 1, 0, 0.200753, 0, 0.979642, -10.598, 0.0156074, -3.41092)
 
-[node name="atm" parent="ATM" instance=ExtResource("10_a1l53")]
+[node name="atm" parent="ATM" groups=["hittable"] instance=ExtResource("10_a1l53")]
 transform = Transform3D(0.828403, 0, 0.560133, 0, 1, 0, -0.560133, 0, 0.828403, 0.661546, 0.00821877, 1.75715)
 
-[node name="atm2" parent="ATM" instance=ExtResource("10_a1l53")]
+[node name="atm2" parent="ATM" groups=["hittable"] instance=ExtResource("10_a1l53")]
 transform = Transform3D(0.997723, 0.0674582, 5.78035e-08, 2.98023e-08, -4.37114e-08, -1, -0.0674582, 0.997723, -2.86529e-08, 0.578937, 0.335616, 2.24133)
 
 [node name="AudioController" parent="." instance=ExtResource("4_km7ra")]
@@ -162,8 +171,7 @@ mesh = SubResource("BoxMesh_7i7r4")
 skeleton = NodePath("")
 
 [node name="ApartmentComplex" type="MeshInstance3D" parent="."]
-transform = Transform3D(13.9304, 9.87944, 0.429164, -1.15377, 0.0496936, -146.687, -88.9079, 1.5473, 1.97082, -57.5456, 57.4368, 11.704)
-visible = false
+transform = Transform3D(1.24692, 9.99892, 0.702937, -1.15377, 0.0496936, -146.687, -89.984, 0.137918, 1.89055, -44.9386, 57.4368, 11.704)
 mesh = SubResource("BoxMesh_7i7r4")
 skeleton = NodePath("")
 
@@ -178,9 +186,14 @@ use_collision = true
 size = Vector3(23.8758, 10.3127, 12.5376)
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="."]
-transform = Transform3D(-6.43083e-05, 3.96587e-05, -1, 0.000213958, 1, 3.96475e-05, 1, -0.000213956, -6.43151e-05, -25.2947, 5.14397, -1.43955)
+transform = Transform3D(-0.00045685, 0.00073799, -1, 0.00268821, 0.999996, 0.000736757, 0.999996, -0.00268788, -0.000458839, -25.2947, 5.14397, -1.43955)
 use_collision = true
 size = Vector3(23.8758, 10.3127, 28.6517)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="."]
+transform = Transform3D(-6.43083e-05, 3.96587e-05, -1, 0.000213958, 1, 3.96475e-05, 1, -0.000213956, -6.43151e-05, -15.6855, 0.613269, 13.3675)
+use_collision = true
+size = Vector3(6.59224, 1.2492, 6.19295)
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -28.9986, 5.14397, 22.1584)
@@ -202,30 +215,49 @@ transform = Transform3D(-0.927321, 0, -0.374267, 0, 1, 0, 0.374267, 0, -0.927321
 use_collision = true
 size = Vector3(2.60207, 10.3127, 51.9998)
 
-[node name="CSGBox3D6" type="CSGBox3D" parent="."]
+[node name="BoxBridge" type="CSGBox3D" parent="."]
 transform = Transform3D(-1.36108e-08, 0, -0.311379, 0, 0.311379, 0, 0.311379, 0, -1.36108e-08, -0.637436, 4.79076, 22.6198)
 use_collision = true
 size = Vector3(11.0349, 2.98681, 128.251)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D6"]
+[node name="BridgePillar" type="CSGBox3D" parent="BoxBridge"]
 transform = Transform3D(1, 0, 7.10543e-15, 0, 1, 0, -7.10543e-15, 0, 1, 0, -8.57598, -8.32171)
 size = Vector3(3, 14.0825, 3)
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="CSGBox3D6"]
+[node name="BridgePillar2" type="CSGBox3D" parent="BoxBridge"]
 transform = Transform3D(1, 0, 7.10543e-15, 0, 1, 0, -7.10543e-15, 0, 1, 0, -8.57598, -27.9308)
 size = Vector3(3, 14.0825, 3)
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="CSGBox3D6"]
+[node name="BridgePillar3" type="CSGBox3D" parent="BoxBridge"]
 transform = Transform3D(1, 0, 7.10543e-15, 0, 1, 0, -7.10543e-15, 0, 1, 0, -8.57598, -47.9397)
 size = Vector3(3, 14.0825, 3)
 
-[node name="CSGBox3D5" type="CSGBox3D" parent="CSGBox3D6"]
+[node name="BridgePillar4" type="CSGBox3D" parent="BoxBridge"]
 transform = Transform3D(1, 0, 7.10543e-15, 0, 1, 0, -7.10543e-15, 0, 1, 0, -8.57598, 35.8554)
 size = Vector3(3, 14.0825, 3)
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D6"]
+[node name="BridgePillar5" type="CSGBox3D" parent="BoxBridge"]
 transform = Transform3D(1, 0, 7.10543e-15, 0, 1, 0, -7.10543e-15, 0, 1, 0, -8.57598, 11.9634)
 size = Vector3(3, 14.0825, 3)
+
+[node name="DecalFishStix2" type="Decal" parent="BoxBridge"]
+transform = Transform3D(-3.27386, 5.37567, -2.34977e-07, -1.92906e-14, -2.75124e-07, -6.2941, -5.37567, -3.27386, 1.43104e-07, -2.31969, -12.1735, 13.5776)
+sorting_offset = -1.0
+size = Vector3(0.7, 1, 1)
+texture_albedo = ExtResource("17_ysuqv")
+upper_fade = 0.0027872
+lower_fade = 0.00874719
+distance_fade_enabled = true
+cull_mask = 1047553
+
+[node name="DecalGoblin2" type="Decal" parent="BoxBridge"]
+transform = Transform3D(2.52725, 4.45062, -3.66345, -5.18092, 2.26465e-07, -3.57407, -2.52725, 4.45062, 3.66345, -2.43382, -9.00697, 9.93295)
+size = Vector3(0.7, 1, 0.7)
+texture_albedo = ExtResource("15_pnsoe")
+modulate = Color(0.258824, 0.831373, 1, 1)
+upper_fade = 0.0027872
+lower_fade = 0.00874719
+cull_mask = 1047553
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.787941, 2.68008, -17.7865)
@@ -253,13 +285,81 @@ use_collision = true
 size = Vector3(4.00446, 6.17358, 6.3457)
 
 [node name="DecalMoney" type="Decal" parent="."]
-transform = Transform3D(0.000652978, 1.95985, -0.00050185, -0.00149903, -0.000501381, -1.95985, -1.95985, 0.000653339, 0.00149887, -9.69452, 4.26411, 6.15061)
+transform = Transform3D(0.000652978, 1.95985, -0.00050185, -0.00149903, -0.000501381, -1.95985, -1.95985, 0.000653339, 0.00149887, -13.5683, 4.26411, 6.15061)
 sorting_offset = -1.0
 size = Vector3(3, 3, 3)
 texture_albedo = ExtResource("15_8rcdg")
 upper_fade = 0.0027872
 lower_fade = 0.00874719
 distance_fade_enabled = true
+cull_mask = 1047553
+
+[node name="DecalRoboFella" type="Decal" parent="."]
+transform = Transform3D(1.45244, -0.000428459, 0.216763, 0.216763, -0.00044417, -1.45244, 0.000489345, 1.46853, -0.000376039, -14.6525, 6.42916, 8.53064)
+sorting_offset = -1.0
+size = Vector3(3, 3, 3)
+texture_albedo = ExtResource("17_f10dt")
+upper_fade = 0.0027872
+lower_fade = 0.00874719
+distance_fade_enabled = true
+cull_mask = 1047553
+
+[node name="DecalRoboFella2" type="Decal" parent="."]
+transform = Transform3D(7.91981e-08, 0.603947, 2.63994e-08, 2.30791e-15, 2.63994e-08, -0.603947, -0.603947, 7.91981e-08, 1.15395e-15, 22.9541, 5.76722, 6.89899)
+sorting_offset = -1.0
+size = Vector3(3, 0.516846, 3)
+texture_albedo = ExtResource("18_vokfd")
+upper_fade = 0.0027872
+lower_fade = 0.00874719
+distance_fade_enabled = true
+cull_mask = 1047553
+
+[node name="DecalRoboFella3" type="Decal" parent="."]
+transform = Transform3D(7.91981e-08, 0.603947, 2.63994e-08, 2.30791e-15, 2.63994e-08, -0.603947, -0.603947, 7.91981e-08, 1.15395e-15, 22.9541, 4.42136, 8.12003)
+sorting_offset = -1.0
+size = Vector3(3, 0.516846, 3)
+texture_albedo = ExtResource("19_41rkn")
+upper_fade = 0.0027872
+lower_fade = 0.00874719
+distance_fade_enabled = true
+cull_mask = 1047553
+
+[node name="DecalRoboFella4" type="Decal" parent="."]
+transform = Transform3D(7.91981e-08, 0.603947, 2.63994e-08, 2.30791e-15, 2.63994e-08, -0.603947, -0.603947, 7.91981e-08, 1.15395e-15, 22.9541, 6.32422, 8.72911)
+sorting_offset = -1.0
+size = Vector3(3, 0.516846, 3)
+texture_albedo = ExtResource("20_xltcj")
+upper_fade = 0.0027872
+lower_fade = 0.00874719
+distance_fade_enabled = true
+cull_mask = 1047553
+
+[node name="DecalDevil" type="Decal" parent="."]
+transform = Transform3D(0.00101418, 3.04396, -0.000779454, -0.00232824, -0.000778725, -3.04396, -3.04396, 0.00101474, 0.00232799, -13.5683, 4.91328, 1.5558)
+size = Vector3(3, 3, 3)
+texture_albedo = ExtResource("17_h33g4")
+upper_fade = 0.0027872
+lower_fade = 0.00874719
+distance_fade_enabled = true
+cull_mask = 1047553
+
+[node name="DecalSkid" type="Decal" parent="."]
+transform = Transform3D(-0.0763033, 1.95306, -0.144062, -0.34565, -0.155339, -1.92286, -1.92762, -0.0494559, 0.3505, -13.6581, 4.26411, -0.552611)
+sorting_offset = 100.0
+size = Vector3(3, 3, 3)
+texture_albedo = ExtResource("17_lnfjx")
+upper_fade = 0.0430763
+lower_fade = 0.0416089
+cull_mask = 1047553
+
+[node name="DecalPets" type="Decal" parent="."]
+transform = Transform3D(-0.0432026, 1.10581, -0.0815672, -0.195705, -0.0879522, -1.08872, -1.09141, -0.0280017, 0.198451, -11.6145, 1.58783, 2.72087)
+sorting_offset = -1.0
+size = Vector3(3, 3, 3)
+texture_albedo = ExtResource("18_ipmcg")
+upper_fade = 0.0430763
+lower_fade = 0.0416089
+cull_mask = 1047553
 
 [node name="DecalMoney2" type="Decal" parent="."]
 transform = Transform3D(1.95985, -0.000653425, -0.00149887, -0.00149903, -0.000501381, -1.95985, 0.000653064, 1.95985, -0.00050185, 0.427288, 2.6414, -10.9335)
@@ -269,33 +369,17 @@ texture_albedo = ExtResource("16_j4pgj")
 upper_fade = 0.0027872
 lower_fade = 0.00874719
 distance_fade_enabled = true
-
-[node name="DecalFishStix2" type="Decal" parent="."]
-transform = Transform3D(1.67387, 1.01941, -4.45597e-08, -6.00668e-15, -8.56679e-08, -1.95985, -1.01941, 1.67387, -7.3167e-08, -5.23303, 1.00019, 21.8975)
-sorting_offset = -1.0
-size = Vector3(0.7, 1, 1)
-texture_albedo = ExtResource("17_ysuqv")
-upper_fade = 0.0027872
-lower_fade = 0.00874719
-distance_fade_enabled = true
+cull_mask = 1047553
 
 [node name="DecalGoblin" type="Decal" parent="."]
 transform = Transform3D(1.37356, 1.39799, -6.11079e-08, 0, -8.56679e-08, -1.95985, -1.39799, 1.37356, -6.00401e-08, -2.09536, 5.69263, -4.05024)
 texture_albedo = ExtResource("15_pnsoe")
 upper_fade = 0.0027872
 lower_fade = 0.00874719
-
-[node name="DecalGoblin2" type="Decal" parent="."]
-transform = Transform3D(0.786932, -1.38583, -1.14072, -1.61323, 7.05164e-08, -1.11289, 0.786932, 1.38583, -1.14072, -3.96835, 1.98618, 21.8117)
-size = Vector3(0.7, 1, 0.7)
-texture_albedo = ExtResource("15_pnsoe")
-modulate = Color(0.258824, 0.831373, 1, 1)
-upper_fade = 0.0027872
-lower_fade = 0.00874719
+cull_mask = 1047553
 
 [node name="EnemySpawner" type="Node3D" parent="." node_paths=PackedStringArray("player")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.57, 2.07152, 3.727)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.57, 0, 3.727)
 script = ExtResource("19_vmiy3")
 player = NodePath("../Player")
 
@@ -304,7 +388,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.13826, 0.000499725, 13.503)
 player = NodePath("../Player")
 
 [node name="Enemy2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_05ke4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.98318, 0.000499725, 3.19935)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.56258, 0.000499725, 6.9965)
 player = NodePath("../Player")
 
 [node name="Enemy3" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_05ke4")]
@@ -324,7 +408,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6879, 0.000499725, 38.055
 player = NodePath("../Player")
 
 [node name="Enemy7" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_05ke4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6879, 0.000499725, 15.9302)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1238, 0.000499725, 15.9302)
 player = NodePath("../Player")
 
 [node name="Enemy8" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_05ke4")]
@@ -334,3 +418,6 @@ player = NodePath("../Player")
 [node name="Enemy9" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_05ke4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.7595, 0.000499725, 38.0629)
 player = NodePath("../Player")
+
+[node name="MP3Player" parent="." instance=ExtResource("27_ecqsp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7251, 0.000499725, -10.5168)

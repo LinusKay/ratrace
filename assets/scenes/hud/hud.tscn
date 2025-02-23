@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dvrpd24a4jslv" path="res://assets/sprites/mascot-pyramid.png" id="5_ito0k"]
 [ext_resource type="Texture2D" uid="uid://chiei5uj8ja3c" path="res://assets/sprites/polyfox3-transparent-50x.png" id="5_vhwqc"]
 [ext_resource type="Texture2D" uid="uid://8h7osmp8uvm4" path="res://assets/sprites/srimpfriedrice.png" id="7_08vxx"]
-[ext_resource type="Shader" path="res://assets/crt.gdshader" id="8_f3pym"]
+[ext_resource type="Shader" path="res://assets/shaders/crt.gdshader" id="8_f3pym"]
 [ext_resource type="Texture2D" uid="uid://cn0um4exl7phe" path="res://assets/sprites/fingergun_left_half.png" id="9_anmr3"]
 [ext_resource type="Texture2D" uid="uid://c5pm77iqwnsa8" path="res://assets/sprites/emote_newspaper_half.png" id="9_l15kd"]
 [ext_resource type="Texture2D" uid="uid://bynnewd6sqec4" path="res://assets/sprites/hands_scare.png" id="9_mharj"]
@@ -707,7 +707,8 @@ grow_vertical = 0
 [node name="FistSprite" type="AnimatedSprite2D" parent="FistPlacement"]
 scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_c48h2")
-animation = &"kick_left"
+animation = &"idle_fists"
+frame_progress = 0.664002
 script = ExtResource("20_a05k8")
 
 [connection signal="timeout" from="WealthGraph/WealthGraphTimer" to="." method="_on_wealth_graph_timer_timeout"]

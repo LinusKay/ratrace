@@ -16,10 +16,8 @@ func _process(delta: float) -> void:
 
 func spawn_enemy() -> void:
 	var enemy_instance: CharacterBody3D = enemy.instantiate()
-	get_parent().add_child(enemy_instance)
+	get_parent().add_child.call_deferred(enemy_instance)
 	enemy_instance.player = player
-	enemy_instance.wealth = 100000
-	enemy_instance.wealth_reward = 100000
 	enemy_instance.activity =  "random"
-	enemy_instance.position = position + Vector3(1,1,1)
+	enemy_instance.position = position
 	print(position, ", ", enemy_instance.position)
