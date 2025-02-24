@@ -1,0 +1,44 @@
+[gd_scene load_steps=9 format=3 uid="uid://b08t4lnvoxd4a"]
+
+[ext_resource type="PackedScene" uid="uid://bxkmta20ny14" path="res://assets/models/food/styrofoam-dinner.glb" id="1_2g8s5"]
+[ext_resource type="Texture2D" uid="uid://c6vjsqgugs6hd" path="res://assets/models/food/colormap.png" id="2_fw05o"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_33mpm"]
+albedo_texture = ExtResource("2_fw05o")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ft0ft"]
+albedo_texture = ExtResource("2_fw05o")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6c7s7"]
+albedo_texture = ExtResource("2_fw05o")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_28kjm"]
+albedo_texture = ExtResource("2_fw05o")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jrqh6"]
+albedo_texture = ExtResource("2_fw05o")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5xg7p"]
+points = PackedVector3Array(-0.33566, 0.00979591, -0.219904, 0.385492, 0.174662, 0.252991, 0.252964, 0.174662, 0.385524, -0.20477, 0.210833, -0.204762, 0.335678, 0.00980223, -0.219889, -0.204799, 0, 0.329962, -0.385524, 0.174683, 0.252991, 0.252964, 0.174662, -0.385524, 0.329932, 1.38778e-17, 0.204792, -0.385524, 0.174683, -0.252991, -0.204799, 0, -0.329962, -0.252921, 0.174683, -0.385524, -0.252921, 0.174683, 0.385524, 0.385492, 0.174662, -0.252991, 0.204767, 0, -0.329962, -0.329893, -1.38778e-17, 0.204792, 0.219908, 0.00981424, 0.335664, -0.0843175, 0.210833, -0.120457, -0.33566, 0.00979591, 0.219904, -0.216845, 0.210833, -0.144534, -0.219882, 0.00980792, -0.335687, -0.132544, 0.210833, -0.0963809, 0.347603, 0.0444848, 0.220093, -0.219882, 0.00980792, 0.335687, 0.204767, 0, 0.329962, 0.329932, 0, -0.204792, -0.329893, -1.38778e-17, -0.204792, 0.219908, 0.00981424, -0.335664, -0.0963174, 0.210833, -0.15661, 0.335678, 0.00980223, 0.219889, 0.347603, 0.0444848, -0.220093, -0.180619, 0.210833, -0.204762)
+
+[node name="styrofoam-dinner2" instance=ExtResource("1_2g8s5")]
+
+[node name="styrofoam-dinner" parent="." index="0"]
+material_override = SubResource("StandardMaterial3D_33mpm")
+
+[node name="Group" parent="styrofoam-dinner" index="0"]
+material_override = SubResource("StandardMaterial3D_ft0ft")
+
+[node name="Group2" parent="styrofoam-dinner" index="1"]
+material_override = SubResource("StandardMaterial3D_6c7s7")
+
+[node name="Group3" parent="styrofoam-dinner" index="2"]
+material_override = SubResource("StandardMaterial3D_28kjm")
+
+[node name="lid" parent="styrofoam-dinner" index="3"]
+material_override = SubResource("StandardMaterial3D_jrqh6")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="styrofoam-dinner" index="4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="styrofoam-dinner/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_5xg7p")

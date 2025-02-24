@@ -1,0 +1,56 @@
+[gd_scene load_steps=11 format=3 uid="uid://b55bucenfmtog"]
+
+[ext_resource type="PackedScene" uid="uid://d1m2uxjksl4h" path="res://assets/models/vehicles/garbage-truck.glb" id="1_g1hxk"]
+[ext_resource type="Texture2D" uid="uid://c5egiav3vk52o" path="res://assets/models/vehicles/colormap.png" id="2_o57ld"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6hqw8"]
+albedo_texture = ExtResource("2_o57ld")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qy66x"]
+albedo_texture = ExtResource("2_o57ld")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2aaiy"]
+albedo_texture = ExtResource("2_o57ld")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ocx3d"]
+albedo_texture = ExtResource("2_o57ld")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_oto06"]
+points = PackedVector3Array(0.449166, 1.19926, 0.92006, -0.174882, -0.0273809, -1.36883, -0.62376, 0.075, -1.17519, 0.153453, -0.0273809, 1.75238, -0.616787, 1.44655, 0.505113, 0.70103, 0.793919, -1.58805, -0.667686, 0.301319, 1.69749, -0.722458, 0.793919, -1.58805, 0.65, 1.45098, -0.762415, 0.65, 0.0784421, 1.47419, 0.55, 0.127452, -1.63166, -0.632841, 1.46529, -0.77774, 0.591484, 0.629869, 1.58805, 0.65, 1.45098, 0.457322, -0.777231, 0.793919, 0.985628, -0.62376, 0.075, 1.58399, 0.755802, 0.793919, 0.985628, 0.65, 0.0784421, -1.11815, -0.55814, 0.629869, 1.58805, 0.591484, 0.903486, -1.6426, -0.522472, 0.125, -1.6382, -0.55814, 0.903486, -1.6426, -0.777231, 0.575086, 0.8213, -0.174882, -0.0273809, 1.75238, 0.646257, 0.301319, 1.69749, 0.755802, 0.575086, 0.8213, -0.681344, 0.275, -1.49632, 0.607046, 1.46019, 0.514854, -0.634927, 1.41567, -0.884328, 0.659915, 0.275, -1.49632, 0.65, 1.40013, -0.864007, 0.602331, 0.075, 1.58399)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u4on3"]
+albedo_texture = ExtResource("2_o57ld")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sl3pl"]
+albedo_texture = ExtResource("2_o57ld")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f18kj"]
+albedo_texture = ExtResource("2_o57ld")
+
+[node name="garbage-truck" instance=ExtResource("1_g1hxk")]
+
+[node name="arm" parent="." index="0"]
+material_override = SubResource("StandardMaterial3D_6hqw8")
+
+[node name="wheel-front-right" parent="." index="1"]
+material_override = SubResource("StandardMaterial3D_qy66x")
+
+[node name="body" parent="." index="2"]
+material_override = SubResource("StandardMaterial3D_2aaiy")
+
+[node name="trash" parent="body" index="0"]
+material_override = SubResource("StandardMaterial3D_ocx3d")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="body" index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="body/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_oto06")
+
+[node name="wheel-back-left" parent="." index="3"]
+material_override = SubResource("StandardMaterial3D_u4on3")
+
+[node name="wheel-back-right" parent="." index="4"]
+material_override = SubResource("StandardMaterial3D_sl3pl")
+
+[node name="wheel-front-left" parent="." index="5"]
+material_override = SubResource("StandardMaterial3D_f18kj")

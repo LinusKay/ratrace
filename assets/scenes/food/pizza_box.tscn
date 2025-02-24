@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://cqqet10k4vb0a"]
+
+[ext_resource type="PackedScene" uid="uid://cl8q3vj8mwc0x" path="res://assets/models/food/pizza-box.glb" id="1_ouyu6"]
+[ext_resource type="Texture2D" uid="uid://c6vjsqgugs6hd" path="res://assets/models/food/colormap.png" id="2_xa73n"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8xnry"]
+albedo_texture = ExtResource("2_xa73n")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jqioh"]
+albedo_texture = ExtResource("2_xa73n")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2vgoi"]
+points = PackedVector3Array(-0.478377, -0.00755396, -0.468311, 0.473328, 0.0982016, 0.483454, -0.463285, 0.0982016, 0.483454, 0.473328, 0.0982016, -0.483454, 0.473328, -0.00755396, 0.483454, 0.473328, -0.00755396, -0.483454, -0.463285, 0.0982016, -0.483454, -0.463285, -0.00755396, 0.483454, -0.478377, 0.0982016, 0.468311, -0.463285, -0.00755396, -0.483454, -0.478377, 0.0982016, -0.468311, -0.478377, -0.00755396, 0.468311)
+
+[node name="pizza-box2" instance=ExtResource("1_ouyu6")]
+
+[node name="pizza-box" parent="." index="0"]
+material_override = SubResource("StandardMaterial3D_8xnry")
+
+[node name="lid" parent="pizza-box" index="0"]
+material_override = SubResource("StandardMaterial3D_jqioh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="pizza-box" index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="pizza-box/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_2vgoi")

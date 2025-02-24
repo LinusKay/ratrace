@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbx5v0ggc7gv2"]
+
+[ext_resource type="PackedScene" uid="uid://bwcjl3wfgfe2a" path="res://assets/models/food/fish-bones.glb" id="1_ku6p7"]
+[ext_resource type="Texture2D" uid="uid://c6vjsqgugs6hd" path="res://assets/models/food/colormap.png" id="2_fsqnq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mbn3y"]
+albedo_texture = ExtResource("2_fsqnq")
+
+[node name="fish-bones2" instance=ExtResource("1_ku6p7")]
+
+[node name="fish-bones" parent="." index="0"]
+material_override = SubResource("StandardMaterial3D_mbn3y")

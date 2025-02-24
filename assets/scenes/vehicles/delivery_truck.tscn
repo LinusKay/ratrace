@@ -1,0 +1,44 @@
+[gd_scene load_steps=9 format=3 uid="uid://b4dod6ojcwlpy"]
+
+[ext_resource type="PackedScene" uid="uid://4stk876g1a3m" path="res://assets/models/vehicles/delivery.glb" id="1_8v3bh"]
+[ext_resource type="Texture2D" uid="uid://c5egiav3vk52o" path="res://assets/models/vehicles/colormap.png" id="2_swta8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2mhoh"]
+albedo_texture = ExtResource("2_swta8")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ym6ec"]
+points = PackedVector3Array(-0.600146, 0.15, -1.54498, 0.771825, 0.799371, 0.927986, 0.565496, 0.593345, 1.5474, -0.615541, 1.40871, 0.4719, 0.625816, 1.42418, -1.49727, 0.643717, 0.151916, -1.49018, -0.600409, 0.05, 1.54566, -0.627941, 1.42206, -1.49258, 0.643713, 0.0525713, 1.49017, 0.611957, 1.40926, 0.4719, -0.775794, 0.799522, 0.928309, -0.569313, 0.593345, 1.54707, 0.342174, 0.0596997, -0.885, 0.449218, 1.45, -1.55444, -0.645722, 0.153875, -1.48534, -0.442265, 1.1393, 0.929275, 0.191116, 1.47221, -0.965253, -0.346142, 0.0596997, -0.885, -0.775794, 0.541838, 0.773537, 0.771825, 0.541838, 0.773537, 0.645554, 0.25, -1.54435, 0.617003, 0.283851, 1.5991, -0.645719, 0.0548305, 1.48533, 0.438297, 1.1393, 0.929274, -0.198734, 0.305076, -1.575, -0.620971, 0.283851, 1.59877, -0.193412, 1.46647, -0.9576, -0.649332, 0.25, -1.54358, 0.19491, 0.0590305, 1.575, -0.619959, 0.0825692, -0.285, 0.61599, 0.0824296, -0.285, -0.775794, 0.799522, 0.773537)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_toi71"]
+albedo_texture = ExtResource("2_swta8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r60tk"]
+albedo_texture = ExtResource("2_swta8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_32nag"]
+albedo_texture = ExtResource("2_swta8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xoxaj"]
+albedo_texture = ExtResource("2_swta8")
+
+[node name="delivery" instance=ExtResource("1_8v3bh")]
+
+[node name="body" parent="." index="0"]
+material_override = SubResource("StandardMaterial3D_2mhoh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="body" index="0" groups=["hittable"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="body/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_ym6ec")
+
+[node name="wheel-back-left" parent="." index="2"]
+material_override = SubResource("StandardMaterial3D_toi71")
+
+[node name="wheel-back-right" parent="." index="3"]
+material_override = SubResource("StandardMaterial3D_r60tk")
+
+[node name="wheel-front-left" parent="." index="4"]
+material_override = SubResource("StandardMaterial3D_32nag")
+
+[node name="wheel-front-right" parent="." index="5"]
+material_override = SubResource("StandardMaterial3D_xoxaj")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://c5ndh5x0xttcc"]
+[gd_scene load_steps=84 format=3 uid="uid://c5ndh5x0xttcc"]
 
 [ext_resource type="Script" path="res://assets/scenes/hud/hud.gd" id="1_f571p"]
 [ext_resource type="FontFile" uid="uid://cwpt2uuf6can2" path="res://assets/theme/fonts/GraffitiYouth-Regular.otf" id="2_f583t"]
@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://cweiyi71ridnu" path="res://assets/sprites/kick_right_half.png" id="19_q62qo"]
 [ext_resource type="Script" path="res://assets/scenes/player/fists.gd" id="20_a05k8"]
 [ext_resource type="Texture2D" uid="uid://d1ttfbiq843q2" path="res://assets/sprites/kick_right.png" id="20_h0eyt"]
+[ext_resource type="Texture2D" uid="uid://dho7b1r7h3ece" path="res://assets/sprites/UI/faeries.png" id="30_saycm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8r3g4"]
 font = ExtResource("2_f583t")
@@ -710,6 +711,10 @@ sprite_frames = SubResource("SpriteFrames_c48h2")
 animation = &"idle_fists"
 frame_progress = 0.664002
 script = ExtResource("20_a05k8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1000, 99)
+texture = ExtResource("30_saycm")
 
 [connection signal="timeout" from="WealthGraph/WealthGraphTimer" to="." method="_on_wealth_graph_timer_timeout"]
 [connection signal="animation_finished" from="FistPlacement/FistSprite" to="FistPlacement/FistSprite" method="_on_animation_finished"]
