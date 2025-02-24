@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://blxnjiirj3l07"]
+[gd_scene load_steps=58 format=3 uid="uid://blxnjiirj3l07"]
 
 [ext_resource type="PackedScene" uid="uid://bah8rlvotmage" path="res://assets/scenes/player/player.tscn" id="1_bqxxq"]
 [ext_resource type="PackedScene" uid="uid://btrrbwknpdyt8" path="res://assets/scenes/enemy/enemy.tscn" id="2_05ke4"]
@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://bdvk2l2pwfidq" path="res://assets/sprites/decals/decal_budsquare2.png" id="19_41rkn"]
 [ext_resource type="Script" path="res://assets/scenes/world/enemy_spawner.gd" id="19_vmiy3"]
 [ext_resource type="Texture2D" uid="uid://didqbpxd1ahn2" path="res://assets/sprites/decals/decal_budsquare3.png" id="20_xltcj"]
+[ext_resource type="Texture2D" uid="uid://brfp6b146rtrd" path="res://assets/sprites/decals/decal_fjester.png" id="21_2yky1"]
 [ext_resource type="PackedScene" uid="uid://spkfev21wdox" path="res://assets/models/buildings/skyscraperE.glb" id="27_ahy0p"]
 [ext_resource type="PackedScene" uid="uid://eepj26vxeybt" path="res://assets/scenes/objects/mp3player.tscn" id="27_ecqsp"]
 [ext_resource type="PackedScene" uid="uid://x1b37pdyx4aq" path="res://assets/models/buildings/large_buildingD.glb" id="28_bntm3"]
@@ -73,7 +74,7 @@ volumetric_fog_length = 16.0
 volumetric_fog_detail_spread = 2.43676
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qjr4h"]
-albedo_color = Color(0.241979, 0.287369, 0.361766, 1)
+albedo_color = Color(0.0379357, 0.0527659, 0.0770938, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uwk68"]
 albedo_texture = ExtResource("11_xxhuy")
@@ -371,6 +372,15 @@ transform = Transform3D(-1.92762, -0.0494559, 0.3505, -0.345649, -0.155339, -1.9
 sorting_offset = 100.0
 size = Vector3(4.73242, 1.54773, 5.0835)
 texture_albedo = ExtResource("17_lnfjx")
+upper_fade = 0.0430763
+lower_fade = 0.0416089
+cull_mask = 1047553
+
+[node name="DecalSkid2" type="Decal" parent="."]
+transform = Transform3D(-1.95836, -0.0763208, 0.00257494, 0.00304616, -0.144053, -1.95454, 0.0763035, -1.95306, 0.144062, 18.9023, 13.0669, 52.897)
+sorting_offset = 100.0
+size = Vector3(4.74737, 1.54773, 8.44977)
+texture_albedo = ExtResource("21_2yky1")
 upper_fade = 0.0430763
 lower_fade = 0.0416089
 cull_mask = 1047553
