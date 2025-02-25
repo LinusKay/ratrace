@@ -1,8 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://b3b570l7qpm8k"]
+[gd_scene load_steps=4 format=4 uid="uid://b3b570l7qpm8k"]
 
 [ext_resource type="PackedScene" uid="uid://dor5qq3b0jkh2" path="res://assets/models/atm/atm.glb" id="1_3inlt"]
+[ext_resource type="Material" uid="uid://bo2dvh17504hh" path="res://assets/materials/material_outline.tres" id="2_uld5w"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_no3bc"]
+_surfaces = [{
+"aabb": AABB(-1.07071, -1.06156, -1.07071, 2.42052, 6.26378, 2.14142),
+"attribute_data": PackedByteArray("13+rPoKHvD6+ibA+rLy6Po1BpT40drg+1AajPhJduz5k8LI+7ZV9PwAAwD4AAAA/kFKiPt7wfD/YJSg/kB0lP+aAQj9qN50+ZBcqPAzxtz72Vh48yv65Pj4sKD+QHX0/AADAPgAAgD7Zi4U8Cu59P3mULT9Kj7s+Y2QvP/5uuT4AACA/AABAPy5Ffj8yoSE/z1cpP4axfT8AAAA+AAAAPy5Ffj++hHo/5oBCP2C7aT3rp1o/6isiPwAAID8AAIA/aFRbP+Y4Ij9Rrlo/6yt6PwAAAD4AAIA+Z1RbP3Icez/mgEI/ajedPuSbOzyAwvE7NJs0PyCrLj/mgEI/YLtpPTSbdD8gqy4/AAAgPwAAgD/EW60+AKwiO3b5oT4AaL07NJs0PyCrbj+H9C4/ACETOzSbdD8gq24/AAAgPwAAQD8="),
+"format": 34359742487,
+"index_count": 60,
+"index_data": PackedByteArray("CQACACMACQAjAB0ACwAHABYACwAWABkAGwAYABEAGwARABQAEwAFAAwAEwAMABoABgADAAoABgAKAA0AEgAOAAAAEgAAAAQAJAAmACAAJAAgAB4AAQAPACUAAQAlACIAFQAIABwAFQAcAB8AEAAXACEAEAAhACcA"),
+"material": ExtResource("2_uld5w"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 40,
+"vertex_data": PackedByteArray("rsasP+gVQkDuZYi/rsasP+gVQkDuZYi/rsasP+gVQkDuZYi/rsasP+gVQkDuZYi/CdyGPxzhh79sZYe/CdyGPxzhh79sZYe/CdyGPxzhh79sZYe/rsasP+gVQkDuZYg/rsasP+gVQkDuZYg/rsasP+gVQkDuZYg/rsasP+gVQkDuZYg/CdyGPxzhh79sZYc/CdyGPxzhh79sZYc/CdyGPxzhh79sZYc/DA2JvwAAQEAMDYm/DA2JvwAAQEAMDYm/DA2JvwAAQEAMDYm/DA2JvwAAQEAMDYm/3GOHv9xjh7/cY4e/3GOHv9xjh7/cY4e/3GOHv9xjh7/cY4e/DA2JvwAAQEAMDYk/DA2JvwAAQEAMDYk/DA2JvwAAQEAMDYk/DA2JvwAAQEAMDYk/3GOHv9xjh7/cY4c/3GOHv9xjh7/cY4c/3GOHv9xjh7/cY4c/FQ19PZJ4pkCggoc/FQ19PZJ4pkCggoc/FQ19PZJ4pkCggoc/IHOHv9u/nkAgc4c/IHOHv9u/nkAgc4c/IHOHv9u/nkAgc4c/Fw19PZJ4pkCdgoe/Fw19PZJ4pkCdgoe/Fw19PZJ4pkCdgoe/IHOHv9u/nkAgc4e/IHOHv9u/nkAgc4e/IHOHv9u/nkAgc4e//////2wAyL//////Jglru2zQka9jAOH/kfeSd+j+9f//////KwAVwACAAAD///+/kfeSd8cABoD/f/9/DweHQ/9//3////8/bNCRr/P/AoCR95J3r//8//9//3+2B9tDAIAAAP///7+R95J3jAENgP////+sAKi//////8AAn78AAACA////vwAAAIBP/v5//////xoA8b8AgAAA////vwAAAIBP/v5//3//f////z//f/9/WQesQwAAAID///+/AAAAgE/+/n//f/9/BggDRACAAAD///+/AAAAgE/+/n//f/9/////P2zQka9h/y6AkGiP6G8XR7T/f/9/////P5Boj+hvF0e0AAAAgP///7//////kBc2tGzQka/Q/w2AkGiP6G8XR7T/////ZQ1MuZBoj+hvF0e0AAAAgP///78=")
+}]
 
 [node name="atm" instance=ExtResource("1_3inlt")]
+
+[node name="OutlineMesh" type="MeshInstance3D" parent="Cube" index="0"]
+mesh = SubResource("ArrayMesh_no3bc")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." index="1" groups=["hittable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0339966, 0.824829, 0)

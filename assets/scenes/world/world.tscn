@@ -18,13 +18,13 @@
 [ext_resource type="Texture2D" uid="uid://c5fkqmp5x2o2d" path="res://assets/sprites/decals/decal_yellowwoman.png" id="17_7aq0k"]
 [ext_resource type="Texture2D" uid="uid://wwhcaq8q85st" path="res://assets/sprites/decals/decal_devil.png" id="17_h33g4"]
 [ext_resource type="Texture2D" uid="uid://bms1jtc4okvan" path="res://assets/sprites/decals/decal_skid.png" id="17_lnfjx"]
-[ext_resource type="Texture2D" uid="uid://sev1wr1qoixu" path="res://assets/sprites/decals/decal_fishstix2.png" id="17_ysuqv"]
 [ext_resource type="Texture2D" uid="uid://bdkrunna7xl8p" path="res://assets/sprites/decals/decal_pets.png" id="18_ipmcg"]
 [ext_resource type="Texture2D" uid="uid://kqedtiyygusf" path="res://assets/sprites/decals/decal_budsquare1.png" id="18_vokfd"]
 [ext_resource type="Texture2D" uid="uid://bdvk2l2pwfidq" path="res://assets/sprites/decals/decal_budsquare2.png" id="19_41rkn"]
 [ext_resource type="Script" path="res://assets/scenes/world/enemy_spawner.gd" id="19_vmiy3"]
 [ext_resource type="Texture2D" uid="uid://didqbpxd1ahn2" path="res://assets/sprites/decals/decal_budsquare3.png" id="20_xltcj"]
 [ext_resource type="Texture2D" uid="uid://brfp6b146rtrd" path="res://assets/sprites/decals/decal_fjester.png" id="21_2yky1"]
+[ext_resource type="Texture2D" uid="uid://denagaxhdqvbx" path="res://assets/sprites/decals/decal_liberal.jpg" id="22_12w43"]
 [ext_resource type="PackedScene" uid="uid://spkfev21wdox" path="res://assets/models/buildings/skyscraperE.glb" id="27_ahy0p"]
 [ext_resource type="PackedScene" uid="uid://eepj26vxeybt" path="res://assets/scenes/objects/mp3player.tscn" id="27_ecqsp"]
 [ext_resource type="PackedScene" uid="uid://x1b37pdyx4aq" path="res://assets/models/buildings/large_buildingD.glb" id="28_bntm3"]
@@ -64,7 +64,6 @@ sky_material = SubResource("ProceduralSkyMaterial_hu6k5")
 background_mode = 2
 sky = SubResource("Sky_x4e3f")
 glow_enabled = true
-volumetric_fog_enabled = true
 volumetric_fog_density = 0.0439
 volumetric_fog_albedo = Color(0.842765, 0.731723, 0.782301, 1)
 volumetric_fog_emission_energy = 0.0
@@ -96,6 +95,7 @@ environment = SubResource("Environment_gkuor")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.920295, -0.304351, -0.245821, 0.0682191, -0.493868, 0.866857, -0.385232, -0.814533, -0.433742, 0, 7.62232, 0)
+light_color = Color(0.871575, 0.995166, 0.995129, 1)
 shadow_enabled = true
 
 [node name="HUD" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_aehdl")]
@@ -222,56 +222,6 @@ use_collision = true
 size = Vector3(2.60207, 10.3127, 51.9998)
 material = SubResource("StandardMaterial3D_14lxi")
 
-[node name="BoxBridge" type="CSGBox3D" parent="."]
-transform = Transform3D(-1.36108e-08, 0, -0.311379, 0, 0.311379, 0, 0.311379, 0, -1.36108e-08, -0.637436, 4.79076, 22.6198)
-visible = false
-use_collision = true
-size = Vector3(11.0349, 2.98681, 128.251)
-material = SubResource("StandardMaterial3D_14lxi")
-
-[node name="BridgePillar" type="CSGBox3D" parent="BoxBridge"]
-transform = Transform3D(1, 0, 7.10543e-15, 0, 1, 0, -7.10543e-15, 0, 1, 0, -8.57598, -8.32171)
-size = Vector3(3, 14.0825, 3)
-material = SubResource("StandardMaterial3D_14lxi")
-
-[node name="BridgePillar2" type="CSGBox3D" parent="BoxBridge"]
-transform = Transform3D(1, 0, 7.10543e-15, 0, 1, 0, -7.10543e-15, 0, 1, 0, -8.57598, -27.9308)
-size = Vector3(3, 14.0825, 3)
-material = SubResource("StandardMaterial3D_14lxi")
-
-[node name="BridgePillar3" type="CSGBox3D" parent="BoxBridge"]
-transform = Transform3D(1, 0, 7.10543e-15, 0, 1, 0, -7.10543e-15, 0, 1, 0, -8.57598, -47.9397)
-size = Vector3(3, 14.0825, 3)
-material = SubResource("StandardMaterial3D_14lxi")
-
-[node name="BridgePillar4" type="CSGBox3D" parent="BoxBridge"]
-transform = Transform3D(1, 0, 7.10543e-15, 0, 1, 0, -7.10543e-15, 0, 1, 0, -8.57598, 35.8554)
-size = Vector3(3, 14.0825, 3)
-material = SubResource("StandardMaterial3D_14lxi")
-
-[node name="BridgePillar5" type="CSGBox3D" parent="BoxBridge"]
-transform = Transform3D(1, 0, 7.10543e-15, 0, 1, 0, -7.10543e-15, 0, 1, 0, -8.57598, 11.9634)
-size = Vector3(3, 14.0825, 3)
-
-[node name="DecalFishStix2" type="Decal" parent="BoxBridge"]
-transform = Transform3D(-3.27386, 5.37567, -2.34977e-07, -1.92906e-14, -2.75124e-07, -6.2941, -5.37567, -3.27386, 1.43104e-07, -2.31969, -12.1735, 13.5776)
-sorting_offset = -1.0
-size = Vector3(0.7, 1, 1)
-texture_albedo = ExtResource("17_ysuqv")
-upper_fade = 0.0027872
-lower_fade = 0.00874719
-distance_fade_enabled = true
-cull_mask = 1047553
-
-[node name="DecalGoblin2" type="Decal" parent="BoxBridge"]
-transform = Transform3D(2.52725, 4.45062, -3.66345, -5.18092, 2.26465e-07, -3.57407, -2.52725, 4.45062, 3.66345, -2.43382, -9.00697, 9.93295)
-size = Vector3(0.7, 1, 0.7)
-texture_albedo = ExtResource("15_pnsoe")
-modulate = Color(0.258824, 0.831373, 1, 1)
-upper_fade = 0.0027872
-lower_fade = 0.00874719
-cull_mask = 1047553
-
 [node name="CSGBox3D2" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.787941, 2.68008, -17.7865)
 use_collision = true
@@ -368,21 +318,49 @@ distance_fade_enabled = true
 cull_mask = 1047553
 
 [node name="DecalSkid" type="Decal" parent="."]
-transform = Transform3D(-1.92762, -0.0494559, 0.3505, -0.345649, -0.155339, -1.92286, 0.0763034, -1.95306, 0.144062, -8.00618, 12.5586, 56.621)
+transform = Transform3D(-0.0763034, 1.95306, -0.144062, -0.345649, -0.155339, -1.92286, -1.92762, -0.0494559, 0.3505, -14.1259, 13.5819, 51.9125)
 sorting_offset = 100.0
-size = Vector3(4.73242, 1.54773, 5.0835)
+size = Vector3(4.05472, 1.54773, 4.03211)
 texture_albedo = ExtResource("17_lnfjx")
 upper_fade = 0.0430763
 lower_fade = 0.0416089
 cull_mask = 1047553
 
-[node name="DecalSkid2" type="Decal" parent="."]
-transform = Transform3D(-1.95836, -0.0763208, 0.00257494, 0.00304616, -0.144053, -1.95454, 0.0763035, -1.95306, 0.144062, 18.9023, 13.0669, 52.897)
+[node name="DecalGoblin2" type="Decal" parent="."]
+transform = Transform3D(-1.77628, -0.12973, -0.817934, 0.824639, -0.0987233, -1.77517, 0.0763035, -1.95306, 0.144062, -16.269, 17.2702, 47.9345)
 sorting_offset = 100.0
-size = Vector3(4.74737, 1.54773, 8.44977)
-texture_albedo = ExtResource("21_2yky1")
+size = Vector3(3.06629, 1.54773, 5.12277)
+texture_albedo = ExtResource("15_pnsoe")
 upper_fade = 0.0430763
 lower_fade = 0.0416089
+cull_mask = 1047553
+
+[node name="DecalFJester" type="Decal" parent="."]
+transform = Transform3D(-1.95836, -0.0763208, 0.00257494, -0.00219866, -0.00965097, -1.95982, 0.0763326, -1.95834, 0.00955838, 29.2301, 10.0233, 42.8245)
+size = Vector3(4.74737, 1.54773, 6.89272)
+texture_albedo = ExtResource("21_2yky1")
+emission_energy = 0.0
+upper_fade = 0.0142098
+lower_fade = 0.00844923
+cull_mask = 1047553
+
+[node name="DecalLiberal" type="Decal" parent="."]
+transform = Transform3D(-1.91255, -0.0315286, 0.426814, -0.427729, 0.207257, -1.90134, -0.0145484, -1.94861, -0.209135, 34.0857, 2.72679, 42.8868)
+sorting_offset = -10.0
+size = Vector3(1.42094, 1.54773, 1.37723)
+texture_albedo = ExtResource("22_12w43")
+emission_energy = 0.0
+upper_fade = 0.504538
+lower_fade = 5.90952
+cull_mask = 1047553
+
+[node name="DecalDevil2" type="Decal" parent="."]
+transform = Transform3D(-1.95836, -0.0763208, 0.00257494, -0.00219866, -0.00965097, -1.95982, 0.0763326, -1.95834, 0.00955838, 26.07, 18.2073, 42.9367)
+size = Vector3(1.17251, 1.54773, 1.80336)
+texture_albedo = ExtResource("17_h33g4")
+emission_energy = 0.0
+upper_fade = 0.0142098
+lower_fade = 0.00844923
 cull_mask = 1047553
 
 [node name="DecalPets" type="Decal" parent="."]
