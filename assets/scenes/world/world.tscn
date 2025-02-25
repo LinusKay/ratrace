@@ -1,25 +1,16 @@
-[gd_scene load_steps=10 format=3 uid="uid://blxnjiirj3l07"]
+[gd_scene load_steps=9 format=3 uid="uid://blxnjiirj3l07"]
 
 [ext_resource type="PackedScene" uid="uid://bah8rlvotmage" path="res://assets/scenes/player/player.tscn" id="1_bqxxq"]
+[ext_resource type="Sky" uid="uid://ia370fhrt4of" path="res://assets/scenes/world/sky.tres" id="1_xetov"]
 [ext_resource type="PackedScene" uid="uid://btrrbwknpdyt8" path="res://assets/scenes/enemy/enemy.tscn" id="2_05ke4"]
 [ext_resource type="PackedScene" uid="uid://c5ndh5x0xttcc" path="res://assets/scenes/hud/hud.tscn" id="3_aehdl"]
 [ext_resource type="PackedScene" uid="uid://bsk73pnasivjr" path="res://assets/scenes/audio/audio_controller.tscn" id="4_km7ra"]
 [ext_resource type="PackedScene" uid="uid://b35nlkrncp4ps" path="res://assets/scenes/level/level_city_big.tscn" id="5_dou1f"]
 [ext_resource type="Script" path="res://assets/scenes/level/level_init.gd" id="6_ntg06"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hu6k5"]
-sky_top_color = Color(0.231271, 0.465353, 0.677524, 1)
-sky_horizon_color = Color(0.765406, 0.615864, 0.577949, 1)
-ground_bottom_color = Color(0.149503, 0.165977, 0.267941, 1)
-ground_horizon_color = Color(0.712479, 0.527239, 0.411394, 1)
-
-[sub_resource type="Sky" id="Sky_x4e3f"]
-sky_material = SubResource("ProceduralSkyMaterial_hu6k5")
-
 [sub_resource type="Environment" id="Environment_gkuor"]
 background_mode = 2
-sky = SubResource("Sky_x4e3f")
-glow_enabled = true
+sky = ExtResource("1_xetov")
 volumetric_fog_density = 0.0439
 volumetric_fog_albedo = Color(0.842765, 0.731723, 0.782301, 1)
 volumetric_fog_emission_energy = 0.0
@@ -27,6 +18,9 @@ volumetric_fog_gi_inject = 0.26
 volumetric_fog_anisotropy = 0.0
 volumetric_fog_length = 16.0
 volumetric_fog_detail_spread = 2.43676
+adjustment_enabled = true
+adjustment_brightness = 0.9
+adjustment_contrast = 1.1
 
 [node name="world" type="Node3D"]
 transform = Transform3D(1.01262, 0, 0, 0, 1.01262, 0, 0, 0, 1.01262, 0, 0, 0)
@@ -35,8 +29,7 @@ transform = Transform3D(1.01262, 0, 0, 0, 1.01262, 0, 0, 0, 1.01262, 0, 0, 0)
 environment = SubResource("Environment_gkuor")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.920295, -0.304351, -0.245821, 0.0682191, -0.493868, 0.866857, -0.385232, -0.814533, -0.433742, 0, 7.62232, 0)
-light_color = Color(0.871575, 0.995166, 0.995129, 1)
+transform = Transform3D(-0.051665, -0.936551, -0.308922, -0.0800658, -0.304341, 0.936054, -0.982929, 0.0740177, -0.0600098, -2.89188, 7.62232, -0.236346)
 shadow_enabled = true
 
 [node name="HUD" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_aehdl")]

@@ -1,0 +1,79 @@
+[gd_scene load_steps=14 format=3 uid="uid://b8n1j677jpvy8"]
+
+[ext_resource type="PackedScene" uid="uid://c7jcechyip1lm" path="res://assets/models/environment/shelves/shelf-boxes.glb" id="1_suy0u"]
+[ext_resource type="Texture2D" uid="uid://b77wxe2quthhx" path="res://assets/models/environment/shelves/colormap.png" id="2_mrdcg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gc376"]
+albedo_texture = ExtResource("2_mrdcg")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dtnv8"]
+albedo_texture = ExtResource("2_mrdcg")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3grqg"]
+albedo_texture = ExtResource("2_mrdcg")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c5u48"]
+albedo_texture = ExtResource("2_mrdcg")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xb47x"]
+albedo_texture = ExtResource("2_mrdcg")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eewn1"]
+albedo_texture = ExtResource("2_mrdcg")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sselj"]
+albedo_texture = ExtResource("2_mrdcg")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_126by"]
+albedo_texture = ExtResource("2_mrdcg")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wtyyw"]
+albedo_texture = ExtResource("2_mrdcg")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t6xvj"]
+albedo_texture = ExtResource("2_mrdcg")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i0k50"]
+albedo_texture = ExtResource("2_mrdcg")
+
+[node name="shelf-boxes2" instance=ExtResource("1_suy0u")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="shelf-boxes" parent="." index="0"]
+material_override = SubResource("StandardMaterial3D_gc376")
+
+[node name="carton" parent="shelf-boxes" index="0"]
+material_override = SubResource("StandardMaterial3D_dtnv8")
+
+[node name="carton2" parent="shelf-boxes" index="1"]
+material_override = SubResource("StandardMaterial3D_3grqg")
+
+[node name="carton3" parent="shelf-boxes" index="2"]
+material_override = SubResource("StandardMaterial3D_c5u48")
+
+[node name="carton4" parent="shelf-boxes" index="3"]
+material_override = SubResource("StandardMaterial3D_xb47x")
+
+[node name="carton5" parent="shelf-boxes" index="4"]
+material_override = SubResource("StandardMaterial3D_eewn1")
+
+[node name="carton6" parent="shelf-boxes" index="5"]
+material_override = SubResource("StandardMaterial3D_sselj")
+
+[node name="box" parent="shelf-boxes" index="6"]
+material_override = SubResource("StandardMaterial3D_126by")
+
+[node name="box2" parent="shelf-boxes" index="7"]
+material_override = SubResource("StandardMaterial3D_wtyyw")
+
+[node name="box3" parent="shelf-boxes" index="8"]
+material_override = SubResource("StandardMaterial3D_t6xvj")
+
+[node name="box4" parent="shelf-boxes" index="9"]
+material_override = SubResource("StandardMaterial3D_i0k50")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00598145, 0.425385, -0.00280762)
+visible = false
+use_collision = true
+size = Vector3(0.783936, 0.801819, 0.585205)

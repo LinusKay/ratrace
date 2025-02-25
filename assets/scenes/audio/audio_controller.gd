@@ -1,9 +1,9 @@
 extends AudioStreamPlayer
 
-#@onready var bgm_softstabs: Resource = load("res://assets/sounds/music/softstabs.ogg")
-#@onready var bgm_noptune: Resource = load("res://assets/sounds/music/noptune.ogg")
+@onready var bgm_softstabs: Resource = load("res://assets/sounds/music/softstabs.ogg")
+@onready var bgm_noptune: Resource = load("res://assets/sounds/music/noptune.ogg")
 @onready var bgm_pigcity: Resource = preload("res://assets/sounds/music/pigcity.ogg")
-@onready var bgms: Array = [bgm_pigcity]
+@onready var bgms: Array = [bgm_softstabs, bgm_noptune, bgm_pigcity]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

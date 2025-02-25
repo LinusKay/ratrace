@@ -75,6 +75,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _physics_process(delta: float) -> void:
+	print(Engine.get_frames_per_second())
 	hud.update_wealth(wealth)
 	wealth -= 1
 

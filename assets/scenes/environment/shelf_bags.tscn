@@ -1,0 +1,67 @@
+[gd_scene load_steps=12 format=3 uid="uid://b4mxhgev22idg"]
+
+[ext_resource type="PackedScene" uid="uid://bvkh7aj7puych" path="res://assets/models/environment/shelves/shelf-bags.glb" id="1_acwhh"]
+[ext_resource type="Texture2D" uid="uid://b77wxe2quthhx" path="res://assets/models/environment/shelves/colormap.png" id="2_2sw21"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_owyn3"]
+albedo_texture = ExtResource("2_2sw21")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ocjsk"]
+albedo_texture = ExtResource("2_2sw21")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x5o2p"]
+albedo_texture = ExtResource("2_2sw21")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k8l0u"]
+albedo_texture = ExtResource("2_2sw21")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uf87h"]
+albedo_texture = ExtResource("2_2sw21")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iaxip"]
+albedo_texture = ExtResource("2_2sw21")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j8jul"]
+albedo_texture = ExtResource("2_2sw21")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1rq2l"]
+albedo_texture = ExtResource("2_2sw21")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v1oco"]
+albedo_texture = ExtResource("2_2sw21")
+
+[node name="shelf-bags2" instance=ExtResource("1_acwhh")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="shelf-bags" parent="." index="0"]
+material_override = SubResource("StandardMaterial3D_owyn3")
+
+[node name="bag" parent="shelf-bags" index="0"]
+material_override = SubResource("StandardMaterial3D_ocjsk")
+
+[node name="bag2" parent="shelf-bags" index="1"]
+material_override = SubResource("StandardMaterial3D_x5o2p")
+
+[node name="bag3" parent="shelf-bags" index="2"]
+material_override = SubResource("StandardMaterial3D_k8l0u")
+
+[node name="bag4" parent="shelf-bags" index="3"]
+material_override = SubResource("StandardMaterial3D_uf87h")
+
+[node name="bag5" parent="shelf-bags" index="4"]
+material_override = SubResource("StandardMaterial3D_iaxip")
+
+[node name="bag6" parent="shelf-bags" index="5"]
+material_override = SubResource("StandardMaterial3D_j8jul")
+
+[node name="bag7" parent="shelf-bags" index="6"]
+material_override = SubResource("StandardMaterial3D_1rq2l")
+
+[node name="bag8" parent="shelf-bags" index="7"]
+material_override = SubResource("StandardMaterial3D_v1oco")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00439453, 0.428809, 0.0147705)
+visible = false
+use_collision = true
+size = Vector3(0.694336, 0.857544, 0.659424)

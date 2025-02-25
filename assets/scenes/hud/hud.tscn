@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=3 uid="uid://c5ndh5x0xttcc"]
+[gd_scene load_steps=87 format=3 uid="uid://c5ndh5x0xttcc"]
 
 [ext_resource type="Script" path="res://assets/scenes/hud/hud.gd" id="1_f571p"]
 [ext_resource type="FontFile" uid="uid://cwpt2uuf6can2" path="res://assets/theme/fonts/GraffitiYouth-Regular.otf" id="2_f583t"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bynnewd6sqec4" path="res://assets/sprites/hands_scare.png" id="9_mharj"]
 [ext_resource type="Texture2D" uid="uid://dkfpaw2fh1bgb" path="res://assets/sprites/fingergun_left.png" id="10_jj1ph"]
 [ext_resource type="Texture2D" uid="uid://n0qinpkissla" path="res://assets/sprites/thumbs_up.png" id="10_o3tyl"]
+[ext_resource type="Texture2D" uid="uid://dmurxlilcoke2" path="res://assets/sprites/elbow_full.png" id="10_paqpw"]
 [ext_resource type="Texture2D" uid="uid://ckv5rji4t0k6r" path="res://assets/sprites/emote_newspaper.png" id="10_wkjx0"]
 [ext_resource type="Texture2D" uid="uid://bpdm6ixywimn5" path="res://assets/sprites/hand_watch.png" id="11_wkreb"]
 [ext_resource type="Texture2D" uid="uid://csf5rarxcvqqf" path="res://assets/sprites/fists_hold.png" id="12_tejdv"]
@@ -29,6 +30,8 @@
 [ext_resource type="Texture2D" uid="uid://cweiyi71ridnu" path="res://assets/sprites/kick_right_half.png" id="19_q62qo"]
 [ext_resource type="Script" path="res://assets/scenes/player/fists.gd" id="20_a05k8"]
 [ext_resource type="Texture2D" uid="uid://d1ttfbiq843q2" path="res://assets/sprites/kick_right.png" id="20_h0eyt"]
+[ext_resource type="Texture2D" uid="uid://dyewtxs4xp8bv" path="res://assets/sprites/the_belt_half.png" id="29_ymlky"]
+[ext_resource type="Texture2D" uid="uid://cld84jgnjyabs" path="res://assets/sprites/the_belt_full.png" id="30_4ofyh"]
 [ext_resource type="Texture2D" uid="uid://dho7b1r7h3ece" path="res://assets/sprites/UI/faeries.png" id="30_saycm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8r3g4"]
@@ -407,6 +410,14 @@ animations = [{
 [sub_resource type="SpriteFrames" id="SpriteFrames_c48h2"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_paqpw")
+}],
+"loop": false,
+"name": &"elbow_left",
+"speed": 5.0
+}, {
+"frames": [{
 "duration": 0.2,
 "texture": ExtResource("9_anmr3")
 }, {
@@ -525,6 +536,17 @@ animations = [{
 "loop": true,
 "name": &"slide",
 "speed": 1.0
+}, {
+"frames": [{
+"duration": 0.3,
+"texture": ExtResource("29_ymlky")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_4ofyh")
+}],
+"loop": false,
+"name": &"the_belt",
+"speed": 5.0
 }]
 
 [node name="HUD" type="Control"]
@@ -708,8 +730,7 @@ grow_vertical = 0
 [node name="FistSprite" type="AnimatedSprite2D" parent="FistPlacement"]
 scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_c48h2")
-animation = &"idle_fists"
-frame_progress = 0.664002
+animation = &"elbow_left"
 script = ExtResource("20_a05k8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

@@ -9,7 +9,7 @@ var emote_bank: Array = ["emote_watch", "emote_thumbs_up", "emote_newspaper", "e
 var emotes: Array = emote_bank.duplicate()
 var emote_previous: Array = []
 
-var punch_bank: Array = ["punch_left", "punch_right", "kick_right"]
+var punch_bank: Array = ["punch_left", "punch_right", "kick_right", "the_belt", "elbow_left"]
 var punches: Array = punch_bank.duplicate()
 var punch_previous: Array = []
 

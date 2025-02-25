@@ -14,6 +14,6 @@ dest_files=["res://.godot/imported/softstabs.ogg-73b75048c285a22a880ad16dd5e49a0
 
 loop=true
 loop_offset=0
-bpm=0
+bpm=175.0
 beat_count=0
 bar_beats=4

@@ -1,0 +1,83 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlgfrbxwfwsfx"]
+
+[ext_resource type="PackedScene" uid="uid://3t20yed057qd" path="res://assets/scenes/environment/plant_bush_detailed.tscn" id="1_607gf"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="plant_bushDetailed2" parent="." instance=ExtResource("1_607gf")]
+transform = Transform3D(2.28483, 0, 0, 0, 3, 0, 0, 0, 2.5502, -4.59344, 0.000499725, 1.37974)
+
+[node name="plant_bushDetailed3" parent="." instance=ExtResource("1_607gf")]
+transform = Transform3D(2.35062, -0.0411805, 0.741565, 0.294951, 2.82349, -0.741937, -0.726529, 1.01302, 2.09806, -3.72353, 0.000499725, 1.84617)
+
+[node name="plant_bushDetailed4" parent="." instance=ExtResource("1_607gf")]
+transform = Transform3D(2.39287, -0.861964, 0.821736, 0.598683, 3.07277, 0.408339, -0.949751, -0.234745, 2.32774, -3.9581, 0.000499725, 0.428517)
+
+[node name="plant_bushDetailed5" parent="." instance=ExtResource("1_607gf")]
+transform = Transform3D(-0.09412, 0, -2.83618, 0, 3.49594, 0, 3.22437, 0, -0.0827893, -2.94942, -0.0444441, 1.02543)
+
+[node name="plant_bushDetailed6" parent="." instance=ExtResource("1_607gf")]
+transform = Transform3D(-2.64553, 0, -3.86633, 0, 3.49594, 0, 2.81276, 0, -3.63644, -2.94501, -0.0444441, -0.814285)
+
+[node name="plant_bushDetailed7" parent="." instance=ExtResource("1_607gf")]
+transform = Transform3D(-3.03692, -1.00625, 2.83612, -1.22365, 3.13089, 0.380055, -2.05656, -0.376945, -4.41421, -0.975954, -0.0879598, -0.787127)
+
+[node name="plant_bushDetailed8" parent="." instance=ExtResource("1_607gf")]
+transform = Transform3D(2.23598, 0, 1.09306, 0, 3, 0, -1.20098, 0, 2.03506, 0.673028, 0.000499725, 1.73778)
+
+[node name="plant_bushDetailed9" parent="." instance=ExtResource("1_607gf")]
+transform = Transform3D(2.07468, 0.841612, 1.25223, -0.530299, 2.60306, -0.568768, -1.57645, 0.231961, 1.83931, 1.3938, 0.000499725, 1.68924)
+
+[node name="plant_bushDetailed10" parent="." instance=ExtResource("1_607gf")]
+transform = Transform3D(1.50763, 0, 2.22045, 0, 3.2, 0, -1.87216, 0, 1.7881, 0.883992, 0.000499725, 0.677497)
+
+[node name="plant_bushDetailed11" parent="." instance=ExtResource("1_607gf")]
+transform = Transform3D(1.63764, 0, -2.43485, 0, 3.49594, 0, 3.27472, 0, 1.21763, 1.40216, -0.0444441, 0.439739)
+
+[node name="plant_bushDetailed12" parent="." instance=ExtResource("1_607gf")]
+transform = Transform3D(-3.32129, 0.260738, -3.09371, 0.701548, 3.44713, -0.170223, 3.36361, -0.46151, -3.01928, 1.32802, -0.0444441, -1.06565)
+
+[node name="plant_bushDetailed13" parent="." instance=ExtResource("1_607gf")]
+transform = Transform3D(-3.93501, -0.664777, -1.16662, -0.89694, 3.29978, 0.25514, 0.962898, 0.357063, -4.52987, 0.112177, 0.269627, -0.416455)
+
+[node name="plant_bushDetailed16" parent="." instance=ExtResource("1_607gf")]
+transform = Transform3D(-1.75035, -0.145381, -4.24263, -1.68677, 3.05257, 0.686744, 3.36259, 1.45558, -1.86396, -0.54837, 0.530847, 0.648287)
+
+[node name="plant_bushDetailed17" parent="." instance=ExtResource("1_607gf")]
+transform = Transform3D(-2.19204, -1.29761, -3.54904, -2.07471, 2.91649, -0.408901, 2.84719, 1.12618, -3.03034, -2.3016, 0.530847, 0.648287)
+
+[node name="plant_bushDetailed14" parent="." instance=ExtResource("1_607gf")]
+transform = Transform3D(2.23598, 0, 1.09306, -0.138016, 2.98012, 0.233869, -1.19302, -0.344759, 2.02158, -1.52856, 0.000499725, -1.92506)
+
+[node name="plant_bushDetailed15" parent="." instance=ExtResource("1_607gf")]
+transform = Transform3D(1.4134, 0, 2.08167, -0.610762, 2.8125, 0.583339, -1.64545, -1.04395, 1.57157, -0.564438, 0.000499725, -1.97368)
+
+[node name="plant_bushDetailed18" parent="." instance=ExtResource("1_607gf")]
+transform = Transform3D(1.4134, 0, 2.08167, -0.590124, 2.82535, 0.563627, -1.65297, -1.00867, 1.57875, 0.457519, 0.000499725, -1.22222)
+
+[node name="plant_bushDetailed19" parent="." instance=ExtResource("1_607gf")]
+transform = Transform3D(-3.93501, -0.664777, -1.16662, -0.89694, 3.29978, 0.25514, 0.962898, 0.357063, -4.52987, -1.51972, -0.0444441, -0.213277)
+
+[node name="plant_bushDetailed20" parent="." instance=ExtResource("1_607gf")]
+transform = Transform3D(-0.440083, 0, 1.80744, 0, 3, 0, -2.03667, 0, -0.390551, -0.144031, 0.000499725, 2.85545)
+
+[node name="plant_bushDetailed21" parent="." instance=ExtResource("1_607gf")]
+transform = Transform3D(-1.45083, 0, 1.38851, 0, 3, 0, -2.06371, 0, -0.97615, 0.0463717, 0.000499725, 2.02774)
+
+[node name="plant_bushDetailed22" parent="." instance=ExtResource("1_607gf")]
+transform = Transform3D(-1.54755, 0, 1.48108, 0, 3.2, 0, -2.20129, 0, -1.04123, -0.83504, 0.000499725, 2.45396)
+
+[node name="plant_bushDetailed23" parent="." instance=ExtResource("1_607gf")]
+transform = Transform3D(2.35704, 0, 0.443224, 0, 3.49594, 0, -0.437745, 0, 2.38654, -0.665962, -0.0444441, 1.50699)
+
+[node name="plant_bushDetailed24" parent="." instance=ExtResource("1_607gf")]
+transform = Transform3D(3.08138, 0, -2.17308, 0, 3.49594, 0, 1.85529, 0, 3.60917, -1.97936, -0.0444441, 1.82415)
+
+[node name="plant_bushDetailed25" parent="." instance=ExtResource("1_607gf")]
+transform = Transform3D(-0.13305, 0.154056, -3.91691, -0.879541, 3.10108, 0.222843, 3.19316, 0.860597, -0.101826, -1.77822, -0.0444441, 2.87874)
+
+[node name="plant_bushDetailed26" parent="." instance=ExtResource("1_607gf")]
+transform = Transform3D(1.52322, 0, 0, 0, 2, 0, 0, 0, 1.70013, -1.57929, 0.000499725, 2.91776)
+
+[node name="plant_bushDetailed27" parent="." instance=ExtResource("1_607gf")]
+transform = Transform3D(1.52322, 0, 0, 0, 2, 0, 0, 0, 1.70013, -2.10297, 0.000499725, 1.83392)
