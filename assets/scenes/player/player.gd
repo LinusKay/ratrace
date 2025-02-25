@@ -1,4 +1,4 @@
-extends CharacterBody3D
+class_name Player extends CharacterBody3D
 
 @export var hud: UI
 @export var audio_controller: AudioStreamPlayer

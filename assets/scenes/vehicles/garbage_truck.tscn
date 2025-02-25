@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://b55bucenfmtog"]
+[gd_scene load_steps=16 format=4 uid="uid://b55bucenfmtog"]
 
 [ext_resource type="PackedScene" uid="uid://d1m2uxjksl4h" path="res://assets/models/vehicles/garbage-truck.glb" id="1_g1hxk"]
 [ext_resource type="Texture2D" uid="uid://c5egiav3vk52o" path="res://assets/models/vehicles/colormap.png" id="2_o57ld"]
@@ -42,6 +42,116 @@ albedo_texture = ExtResource("2_o57ld")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f18kj"]
 albedo_texture = ExtResource("2_o57ld")
 
+[sub_resource type="Animation" id="Animation_g0bka"]
+resource_name = "bounce"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("body:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0.0174533), Vector3(0, 0, 0), Vector3(0, 0, -0.0174533), Vector3(0, 0, 0), Vector3(0, 0, 0.0174533)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("body:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(1.01, 0.97, 1), Vector3(1, 1, 1), Vector3(1.01, 0.97, 1), Vector3(1, 1, 1), Vector3(1.01, 0.97, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("arm:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(1.01, 0.97, 1), Vector3(1, 1, 1), Vector3(1.01, 0.97, 1), Vector3(1, 1, 1), Vector3(1.01, 0.97, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("arm:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0.0174533), Vector3(0, 0, 0), Vector3(0, 0, -0.0174533), Vector3(0, 0, 0), Vector3(0, 0, 0.0174533)]
+}
+
+[sub_resource type="Animation" id="Animation_5ywvx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("body:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("body:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("arm:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("arm:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r1ju6"]
+_data = {
+"RESET": SubResource("Animation_5ywvx"),
+"bounce": SubResource("Animation_g0bka")
+}
+
 [node name="garbage-truck" instance=ExtResource("1_g1hxk")]
 
 [node name="arm" parent="." index="0"]
@@ -72,3 +182,11 @@ material_override = SubResource("StandardMaterial3D_sl3pl")
 
 [node name="wheel-front-left" parent="." index="5"]
 material_override = SubResource("StandardMaterial3D_f18kj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="6"]
+libraries = {
+"": SubResource("AnimationLibrary_r1ju6")
+}
+autoplay = "bounce"
+playback_auto_capture_transition_type = 8
+speed_scale = 1.766

@@ -1,6 +1,6 @@
 extends Node3D
 
-@export var player: CharacterBody3D
+@onready var player: Player = get_parent().player
 
 var enemy: Resource = load("res://assets/scenes/enemy/enemy.tscn")
 

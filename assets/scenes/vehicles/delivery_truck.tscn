@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=4 uid="uid://b4dod6ojcwlpy"]
+[gd_scene load_steps=15 format=4 uid="uid://b4dod6ojcwlpy"]
 
 [ext_resource type="PackedScene" uid="uid://4stk876g1a3m" path="res://assets/models/vehicles/delivery.glb" id="1_8v3bh"]
 [ext_resource type="Texture2D" uid="uid://c5egiav3vk52o" path="res://assets/models/vehicles/colormap.png" id="2_swta8"]
 [ext_resource type="Material" uid="uid://bo2dvh17504hh" path="res://assets/materials/material_outline.tres" id="3_mqf34"]
+[ext_resource type="Texture2D" uid="uid://pl0ghy6r4ykk" path="res://assets/sprites/decals/decal_fishstix.png" id="4_uj6su"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2mhoh"]
 albedo_texture = ExtResource("2_swta8")
@@ -36,6 +37,140 @@ albedo_texture = ExtResource("2_swta8")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xoxaj"]
 albedo_texture = ExtResource("2_swta8")
 
+[sub_resource type="Animation" id="Animation_mxd2j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("body:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("body:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("door:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("door:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("door:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.5, -1.475)]
+}
+
+[sub_resource type="Animation" id="Animation_xh80k"]
+resource_name = "bounce"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("body:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(1.01, 0.97, 1), Vector3(1, 1, 1), Vector3(1.01, 0.97, 1), Vector3(1, 1, 1), Vector3(1.01, 0.97, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("body:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0.0174533), Vector3(0, 0, 0), Vector3(0, 0, -0.0174533), Vector3(0, 0, 0), Vector3(0, 0, 0.0174533)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("door:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0.0174533), Vector3(0, 0, 0), Vector3(0, 0, -0.0174533), Vector3(0, 0, 0), Vector3(0, 0, 0.0174533)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("door:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(1.01, 0.97, 1), Vector3(1, 1, 1), Vector3(1.01, 0.97, 1), Vector3(1, 1, 1), Vector3(1.01, 0.97, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("door:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.01, 1.45, -1.475), Vector3(0, 1.47, -1.475), Vector3(0.01, 1.45, -1.475), Vector3(0, 1.47, -1.475), Vector3(-0.01, 1.45, -1.475)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_we05h"]
+_data = {
+"RESET": SubResource("Animation_mxd2j"),
+"bounce": SubResource("Animation_xh80k")
+}
+
 [node name="delivery" instance=ExtResource("1_8v3bh")]
 
 [node name="body" parent="." index="0"]
@@ -49,6 +184,16 @@ shape = SubResource("ConvexPolygonShape3D_ym6ec")
 [node name="OutlineMesh" type="MeshInstance3D" parent="body" index="1"]
 mesh = SubResource("ArrayMesh_wu3ru")
 
+[node name="DecalFishStix" type="Decal" parent="body" index="2"]
+transform = Transform3D(-0.0002018, 0.989948, -0.0172785, -0.0117921, -0.0176287, -1.00988, -0.999932, -4.3198e-08, 0.011676, 0.647171, 0.866034, -0.393743)
+sorting_offset = -1.0
+size = Vector3(1.73172, 0.267334, 0.992981)
+texture_albedo = ExtResource("4_uj6su")
+upper_fade = 0.0027872
+lower_fade = 0.00874719
+distance_fade_enabled = true
+cull_mask = 1047553
+
 [node name="wheel-back-left" parent="." index="2"]
 material_override = SubResource("StandardMaterial3D_toi71")
 
@@ -60,3 +205,10 @@ material_override = SubResource("StandardMaterial3D_32nag")
 
 [node name="wheel-front-right" parent="." index="5"]
 material_override = SubResource("StandardMaterial3D_xoxaj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="6"]
+libraries = {
+"": SubResource("AnimationLibrary_we05h")
+}
+autoplay = "bounce"
+speed_scale = 1.766
