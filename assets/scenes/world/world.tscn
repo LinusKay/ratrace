@@ -11,6 +11,7 @@
 [sub_resource type="Environment" id="Environment_gkuor"]
 background_mode = 2
 sky = ExtResource("1_xetov")
+ssr_fade_in = 0.559819
 volumetric_fog_density = 0.0439
 volumetric_fog_albedo = Color(0.842765, 0.731723, 0.782301, 1)
 volumetric_fog_emission_energy = 0.0
@@ -29,7 +30,7 @@ transform = Transform3D(1.01262, 0, 0, 0, 1.01262, 0, 0, 0, 1.01262, 0, 0, 0)
 environment = SubResource("Environment_gkuor")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.051665, -0.936551, -0.308922, -0.0800658, -0.304341, 0.936054, -0.982929, 0.0740177, -0.0600098, -2.89188, 7.62232, -0.236346)
+transform = Transform3D(0.0714775, -0.984643, 0.0244972, -0.221013, 0.00790132, 0.962456, -0.95983, -0.0751446, -0.219793, -2.89188, 7.62232, -0.236346)
 shadow_enabled = true
 
 [node name="HUD" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_aehdl")]

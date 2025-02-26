@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=4 uid="uid://btrrbwknpdyt8"]
+[gd_scene load_steps=10 format=4 uid="uid://btrrbwknpdyt8"]
 
 [ext_resource type="Script" path="res://assets/scenes/enemy/enemy.gd" id="1_wg2nr"]
 [ext_resource type="FontFile" uid="uid://cwpt2uuf6can2" path="res://assets/theme/fonts/GraffitiYouth-Regular.otf" id="2_d6oo5"]
 [ext_resource type="Material" uid="uid://bo2dvh17504hh" path="res://assets/materials/material_outline.tres" id="2_lkpjs"]
-[ext_resource type="Texture2D" uid="uid://c0qqn3idhsifl" path="res://assets/sprites/decals/IMG_7903.jpg" id="4_3dnfp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ssdw4"]
 albedo_color = Color(1, 0.0666667, 0.180392, 1)
@@ -40,7 +39,6 @@ script = ExtResource("1_wg2nr")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-visible = false
 layers = 4
 mesh = SubResource("CapsuleMesh_lutjp")
 skeleton = NodePath("../CollisionShape3D")
@@ -93,10 +91,6 @@ shape = SubResource("BoxShape3D_agqb7")
 [node name="AttackTimer" type="Timer" parent="Hitbox"]
 unique_name_in_owner = true
 one_shot = true
-
-[node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(0.604595, 0, 0, 0, 0.344612, 0, 0, 0, 0.604595, 0, 0.89663, 0)
-texture = ExtResource("4_3dnfp")
 
 [connection signal="timeout" from="SpeechTimer" to="." method="_on_speech_timer_timeout"]
 [connection signal="timeout" from="DirectionTimer" to="." method="_on_direction_timer_timeout"]

@@ -47,7 +47,7 @@ shader_parameter/astro_intensity = 3.0
 shader_parameter/astro_sampler = ExtResource("2_5uwiw")
 shader_parameter/stars_intensity = 0.0
 shader_parameter/shooting_stars_intensity = 0.0
-shader_parameter/shooting_star_tint = null
+shader_parameter/shooting_star_tint = Color(1, 1, 1, 1)
 
 [resource]
 sky_material = SubResource("ShaderMaterial_xohch")
