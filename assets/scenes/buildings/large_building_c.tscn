@@ -7,10 +7,10 @@ resource_name = "roof"
 albedo_color = Color(0.615762, 0.874166, 0.797738, 1)
 metallic = 1.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a3eou"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ldlvs"]
 resource_name = "window"
 albedo_color = Color(0.874166, 0.948242, 1, 1)
-metallic = 1.0
+clearcoat_roughness = 1.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2r8eo"]
 resource_name = "door"
@@ -101,7 +101,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 168,
 "index_data": PackedByteArray("AgAAAAEAAQADAAIABgAEAAUABQAHAAYACgAIAAkACQALAAoADgAMAA0ADQAPAA4AEgAQABEAEQATABIAFgAUABUAFQAXABYAGgAYABkAGQAbABoAHgAcAB0AHQAfAB4AIgAgACEAIQAjACIAJgAkACUAJQAnACYAKgAoACkAKQArACoALgAsAC0ALQAvAC4AMgAwADEAMQAzADIANgA0ADUANQA3ADYAOgA4ADkAOQA7ADoAPgA8AD0APQA/AD4AQgBAAEEAQQBDAEIARgBEAEUARQBHAEYASgBIAEkASQBLAEoATgBMAE0ATQBPAE4AUgBQAFEAUQBTAFIAVgBUAFUAVQBXAFYAWgBYAFkAWQBbAFoAXgBcAF0AXQBfAF4AYgBgAGEAYQBjAGIAZgBkAGUAZQBnAGYAagBoAGkAaQBrAGoAbgBsAG0AbQBvAG4A"),
-"material": SubResource("StandardMaterial3D_a3eou"),
+"material": SubResource("StandardMaterial3D_ldlvs"),
 "name": "window",
 "primitive": 3,
 "uv_scale": Vector4(23.622, 112.173, 0, 0),

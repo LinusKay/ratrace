@@ -14,7 +14,6 @@ metallic = 1.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m6i22"]
 resource_name = "window"
-albedo_color = Color(0.673611, 0.83429, 0.906667, 1)
 clearcoat_enabled = true
 clearcoat_roughness = 0.51
 

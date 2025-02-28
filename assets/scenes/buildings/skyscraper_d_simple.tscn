@@ -1,25 +1,20 @@
-[gd_scene load_steps=12 format=4 uid="uid://n6ly25h5bhss"]
+[gd_scene load_steps=9 format=4 uid="uid://uyy61pjdnl24"]
 
-[ext_resource type="PackedScene" uid="uid://blxx638ftj4o0" path="res://assets/models/buildings/skyscraperD.glb" id="1_w4brg"]
+[ext_resource type="PackedScene" uid="uid://blxx638ftj4o0" path="res://assets/models/buildings/skyscraperD.glb" id="1_6tc2r"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e1ih7"]
 resource_name = "border"
 albedo_color = Color(0.913725, 0.592157, 0.815686, 1)
 metallic = 1.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nlpva"]
-resource_name = "trim"
-albedo_color = Color(0.913725, 0.592157, 0.815686, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e2m1o"]
+resource_name = "window"
+albedo_color = Color(0.974648, 0.660994, 1, 1)
 metallic = 1.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_crtv3"]
 resource_name = "door"
 albedo_color = Color(0.701961, 0.560784, 0.866667, 1)
-metallic = 1.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e2m1o"]
-resource_name = "window"
-albedo_color = Color(0.974648, 0.660994, 1, 1)
 metallic = 1.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rea00"]
@@ -116,7 +111,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 306,
 "index_data": PackedByteArray("XwAsAF4AXgBgAF8AYABhAF8AMAAvAFYAVgBVADAAPgA9AEgASABHAD4ADwAOABkAGQAYAA8AZABiAGMAYwBlAGQAYwBmAGUACQAIAB8AHwAeAAkAQgBBAEQARABDAEIAEwASABUAFQAUABMAaQBnAGgAaABqAGkAaABrAGoAbQBsAF0AXQBuAG0AXQBvAG4AXQBcAG8AcQAqAHAAcAAoAHEAcAByACgAcgBzACgANgA1AFAAUABPADYAOAA3AE4ATgBNADgABwAGACEAIQAgAAcAdgB0AHUAdQB3AHYAdwB4AHYAewB5AHoAegB8AHsAfAB9AHsAgAB+AH8AfwCBAIAAfwCCAIEAOgA5AEwATABLADoAhQCDAIQAhACGAIUAhgCHAIUADQAMABsAGwAaAA0AiQBYAIgAiACKAIkAiACLAIoAjgCMAI0AjQCPAI4AjQCQAI8AQAA/AEYARgBFAEAAkwCRAJIAkgCUAJMAkgCVAJQACwAKAB0AHQAcAAsAmACWAJcAlwCZAJgAmQCaAJgAnQCbAJwAnACeAJ0AngCfAJ0APAA7AEoASgBJADwAAQAAACcAJwAmAAEABQAEACMAIwAiAAUAoAAtAC4ALgChAKAAoQApAKAAowArAKIAogCkAKMAogClAKQAMgAxAFQAVABTADIApwBZAKYApgCoAKcApgBaAKgAAwACACUAJQAkAAMAqwCpAKoAqgCsAKsAqgCtAKwAsACuAK8ArwCxALAAsQCyALAAtABXALMAswBbALQAWwC1ALQAEQAQABcAFwAWABEANAAzAFIAUgBRADQA"),
-"material": SubResource("StandardMaterial3D_nlpva"),
+"material": SubResource("StandardMaterial3D_e2m1o"),
 "name": "trim",
 "primitive": 3,
 "uv_scale": Vector4(31.618, 378.557, 0, 0),
@@ -174,72 +169,37 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_8qpgl")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b6ysi"]
-resource_name = "door"
-albedo_color = Color(0.684547, 0.373064, 0.904838, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_d750o"]
-material = SubResource("StandardMaterial3D_b6ysi")
-
-[node name="skyscraperD2" instance=ExtResource("1_w4brg")]
+[node name="skyscraperD2" instance=ExtResource("1_6tc2r")]
 
 [node name="skyscraperD" parent="tmpParent" index="0"]
 mesh = SubResource("ArrayMesh_2y62t")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="tmpParent/skyscraperD" index="0"]
-transform = Transform3D(0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0, 1, 0.546428, 4.32994, 0)
-visible = false
-material = SubResource("StandardMaterial3D_b6ysi")
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="tmpParent/skyscraperD" index="1"]
-transform = Transform3D(0.975726, 0.218995, 0, -0.218995, 0.975726, 0, 0, 0, 1, 1.10431, 4.8295, 0)
-visible = false
-size = Vector3(0.476807, 1, 1)
-material = SubResource("StandardMaterial3D_b6ysi")
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="tmpParent/skyscraperD" index="2"]
-transform = Transform3D(-0.707107, -0.707107, -8.74228e-08, -0.707107, 0.707107, 0, 6.18172e-08, 6.18172e-08, -1, -0.59145, 4.32994, -2.43859e-08)
-material = SubResource("StandardMaterial3D_b6ysi")
-
-[node name="CSGBox3D4" type="CSGBox3D" parent="tmpParent/skyscraperD" index="3"]
-transform = Transform3D(-0.975726, -0.218995, -8.74228e-08, -0.218995, 0.975726, 0, 8.53007e-08, 1.91451e-08, -1, -1.14934, 4.8295, 2.43859e-08)
-size = Vector3(0.476807, 1, 1)
-material = SubResource("StandardMaterial3D_b6ysi")
-
-[node name="Collision" type="CSGBox3D" parent="tmpParent/skyscraperD" index="4"]
+[node name="Collision" type="CSGBox3D" parent="tmpParent/skyscraperD" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00335693, 0.519135, -0.0528259)
 visible = false
 use_collision = true
 size = Vector3(1.18933, 1.01068, 1.07013)
 
-[node name="Collision4" type="CSGBox3D" parent="tmpParent/skyscraperD" index="5"]
+[node name="Collision4" type="CSGBox3D" parent="tmpParent/skyscraperD" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.396515, 0.519135, 0.536827)
 visible = false
 use_collision = true
 size = Vector3(0.389587, 1.01068, 0.11586)
 
-[node name="Collision5" type="CSGBox3D" parent="tmpParent/skyscraperD" index="6"]
+[node name="Collision5" type="CSGBox3D" parent="tmpParent/skyscraperD" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.400819, 0.519135, 0.536827)
 visible = false
 use_collision = true
 size = Vector3(0.389587, 1.01068, 0.11586)
 
-[node name="Collision2" type="CSGBox3D" parent="tmpParent/skyscraperD" index="7"]
+[node name="Collision2" type="CSGBox3D" parent="tmpParent/skyscraperD" index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.184292, 0.177391, 0.685721)
 visible = false
 use_collision = true
 size = Vector3(0.0229111, 0.358414, 0.0206909)
 
-[node name="Collision3" type="CSGBox3D" parent="tmpParent/skyscraperD" index="8"]
+[node name="Collision3" type="CSGBox3D" parent="tmpParent/skyscraperD" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.186221, 0.177391, 0.685721)
 visible = false
 use_collision = true
 size = Vector3(0.0229111, 0.358414, 0.0206909)
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="tmpParent/skyscraperD" index="9"]
-transform = Transform3D(0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, 0.546428, 4.32994, 0)
-mesh = SubResource("BoxMesh_d750o")
-
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="tmpParent/skyscraperD" index="10"]
-transform = Transform3D(0.46533, 0.219846, 0, -0.104867, 0.975535, 0, 0, 0, 1, 1.10431, 4.8295, 0)
-mesh = SubResource("BoxMesh_d750o")

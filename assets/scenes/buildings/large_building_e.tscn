@@ -12,10 +12,10 @@ resource_name = "_defaultMat"
 albedo_color = Color(1, 0.603986, 0.811435, 1)
 metallic = 1.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qk570"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ds081"]
 resource_name = "window"
 albedo_color = Color(0.874166, 0.948242, 1, 1)
-metallic = 1.0
+clearcoat_roughness = 1.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wd25b"]
 resource_name = "_defaultMat"
@@ -113,7 +113,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 270,
 "index_data": PackedByteArray("MQAwADMAMwAyADEADAAKAA8ADwANAAwACQAIAA4ADgALAAkABQAEAAcABwAGAAUALQAsAC8ALwAuAC0AIAAeACMAIwAhACAAFAASABcAFwAVABQAJQAkACoAKgAnACUAEQAQABYAFgATABEANQA0ADoAOgA3ADUAOAA2ADsAOwA5ADgAbQBsAG8AbwBuAG0AUQBQAFMAUwBSAFEATQBMAE8ATwBOAE0ASABGAEsASwBJAEgAKAAmACsAKwApACgAHQAcACIAIgAfAB0AGQAYABsAGwAaABkAQAA+AEMAQwBBAEAAPQA8AEIAQgA/AD0AWABWAFsAWwBZAFgAVQBUAFoAWgBXAFUAZQBkAGcAZwBmAGUARQBEAEoASgBHAEUAXQBcAGIAYgBfAF0AogCgAKEAoQCjAKIAYABeAGMAYwBhAGAAeQB4AHsAewB6AHkAaQBoAGsAawBqAGkAcQBwAHYAdgBzAHEAlQCUAJcAlwCWAJUAdAByAHcAdwB1AHQAAQAAAAMAAwACAAEAfQB8AH8AfwB+AH0AiACGAIsAiwCJAIgAmQCYAJsAmwCaAJkAjQCMAJIAkgCPAI0AhQCEAIoAigCHAIUAnQCcAJ8AnwCeAJ0AkACOAJMAkwCRAJAApgCkAKUApQCnAKYAqgCoAKkAqQCrAKoAgQCAAIMAgwCCAIEArgCsAK0ArQCvAK4AsgCwALEAsQCzALIA"),
-"material": SubResource("StandardMaterial3D_qk570"),
+"material": SubResource("StandardMaterial3D_ds081"),
 "name": "window",
 "primitive": 3,
 "uv_scale": Vector4(39.3701, 143.669, 0, 0),
