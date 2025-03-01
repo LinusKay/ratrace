@@ -47,6 +47,30 @@ audio_controller = NodePath("../AudioController")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.769, 0.000499725, -25.8217)
 player = NodePath("../Player")
 
+[node name="Enemy10" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_05ke4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.769, 0.000499725, 31.2135)
+player = NodePath("../Player")
+
+[node name="Enemy11" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_05ke4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.3549, 0.000499725, 31.2135)
+player = NodePath("../Player")
+
+[node name="Enemy12" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_05ke4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.8231, 0.000499725, 59.6675)
+player = NodePath("../Player")
+
+[node name="Enemy13" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_05ke4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.3751, 5.12914, 22.9451)
+player = NodePath("../Player")
+
+[node name="Enemy14" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_05ke4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.806292, 5.12914, 18.1205)
+player = NodePath("../Player")
+
+[node name="Enemy15" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_05ke4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.9086, 5.12914, 39.5803)
+player = NodePath("../Player")
+
 [node name="Enemy2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_05ke4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.0681, 0.000499725, -32.3282)
 player = NodePath("../Player")

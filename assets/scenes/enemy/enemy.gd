@@ -6,6 +6,22 @@ extends CharacterBody3D
 
 @onready var hitbox: Area3D = %Hitbox
 
+var model_animation: AnimationPlayer
+var models: Array = [
+	"character_male_a",
+	"character_male_b",
+	"character_male_c",
+	"character_male_d",
+	"character_male_e",
+	"character_male_f_2",
+	"character_female_a",
+	"character_female_b",
+	"character_female_c",
+	"character_female_d",
+	"character_female_e",
+	"character_female_f",
+]
+
 var melee_damage: int = wealth * 0.1
 
 var is_staring: bool = false
@@ -171,6 +187,16 @@ var personality: String = personality_bank.keys().pick_random()
 
 
 func _ready() -> void:
+	var enemy_model_choice: String = models.pick_random()
+	var enemy_model: Resource = load("res://assets/scenes/characters/" + enemy_model_choice + ".tscn")
+	var enemy_model_instance: Node3D = enemy_model.instantiate()
+	enemy_model_instance.scale = Vector3(2.5, 2.5, 2.5)
+	enemy_model_instance.position = Vector3(0,0,0)
+	enemy_model_instance.rotation.y = -179
+	add_child.call_deferred(enemy_model_instance)
+	print(enemy_model_instance)
+	model_animation = enemy_model_instance.get_node("AnimationPlayer")
+	
 	is_staring = false
 	if activity == "random": activity = activities.pick_random()
 	look_random()
@@ -204,11 +230,17 @@ func _physics_process(delta: float) -> void:
 				is_staring = true
 			else: 
 				is_staring = false
+			if !model_animation.current_animation == "idle":
+				model_animation.play("idle")
 			
 		elif activity == "roam":
 			velocity = -basis.z * speed
+			if !model_animation.current_animation == "walk":
+				model_animation.play("walk")
 			
 		elif activity == "chase":
+			if !model_animation.current_animation == "sprint":
+				model_animation.play("sprint")
 			set_rotation_goal_to_player()
 			velocity = -basis.z * speed_chase
 			if %AttackTimer.is_stopped():
@@ -250,6 +282,7 @@ func hurt(_damage: int) -> float:
 
 
 func _react_hurt() -> void:
+	set_rotation_goal_to_player()
 	_speak_hurt()
 	
 	# Apply knockback force away from the player

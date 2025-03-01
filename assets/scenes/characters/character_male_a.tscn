@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0hut7h42bx7u"]
+
+[ext_resource type="PackedScene" uid="uid://77uu71ycl0g5" path="res://assets/models/characters/character-male-a.glb" id="1_ljl0c"]
+[ext_resource type="Texture2D" uid="uid://cqld2kgynbfy6" path="res://assets/models/characters/colormap.png" id="2_wij2t"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_phh54"]
+albedo_texture = ExtResource("2_wij2t")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0gccp"]
+albedo_texture = ExtResource("2_wij2t")
+
+[node name="character-male-a2" instance=ExtResource("1_ljl0c")]
+
+[node name="body-mesh" parent="character-male-a/Skeleton3D" index="0"]
+material_override = SubResource("StandardMaterial3D_phh54")
+
+[node name="head-mesh" parent="character-male-a/Skeleton3D" index="1"]
+material_override = SubResource("StandardMaterial3D_0gccp")

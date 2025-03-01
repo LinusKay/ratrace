@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://b35nlkrncp4ps"]
+[gd_scene load_steps=76 format=3 uid="uid://b35nlkrncp4ps"]
 
 [ext_resource type="PackedScene" uid="uid://eepj26vxeybt" path="res://assets/scenes/objects/mp3player.tscn" id="1_415it"]
 [ext_resource type="PackedScene" uid="uid://spkfev21wdox" path="res://assets/models/buildings/skyscraperE.glb" id="2_r6sh5"]
@@ -38,16 +38,28 @@
 [ext_resource type="PackedScene" uid="uid://m82geu2fp8tj" path="res://assets/models/vehicles/rail/railroad-rail-straight-hill-end.glb" id="33_x7esv"]
 [ext_resource type="PackedScene" uid="uid://bbghns5f80q25" path="res://assets/scenes/environment/box.tscn" id="34_k16lj"]
 [ext_resource type="Texture2D" uid="uid://c5fkqmp5x2o2d" path="res://assets/sprites/decals/decal_yellowwoman.png" id="34_kxp0i"]
+[ext_resource type="Texture2D" uid="uid://dhqephxfaxbte" path="res://assets/sprites/decals/1199333760328536214.webp" id="34_m3pry"]
 [ext_resource type="Texture2D" uid="uid://0w1a6h5hvmjf" path="res://assets/sprites/decals/banner.png" id="35_cdtuh"]
+[ext_resource type="Texture2D" uid="uid://cxi8esgablk65" path="res://assets/sprites/decals/1199333715013283931.webp" id="35_d13vl"]
+[ext_resource type="Texture2D" uid="uid://t5uxwryknfoe" path="res://assets/sprites/decals/happy.png" id="36_7x3sb"]
 [ext_resource type="PackedScene" uid="uid://bqv1p2gb8fulb" path="res://assets/scenes/environment/cone.tscn" id="36_ufril"]
+[ext_resource type="Texture2D" uid="uid://sev1wr1qoixu" path="res://assets/sprites/decals/decal_fishstix2.png" id="37_is75w"]
 [ext_resource type="PackedScene" uid="uid://pix5glul6pyg" path="res://assets/models/environment/detail_umbrella.glb" id="37_pvfvk"]
 [ext_resource type="PackedScene" uid="uid://qsnvr3cu4tyv" path="res://assets/scenes/environment/tree_detailed.tscn" id="38_iu275"]
+[ext_resource type="Texture2D" uid="uid://kqedtiyygusf" path="res://assets/sprites/decals/decal_budsquare1.png" id="38_ooou7"]
 [ext_resource type="PackedScene" uid="uid://wpht5ofl57ne" path="res://assets/scenes/environment/tree_detailed_dark.tscn" id="38_q0ect"]
+[ext_resource type="Texture2D" uid="uid://beu4h88x80ubn" path="res://assets/sprites/decals/apple.png" id="38_qenpb"]
+[ext_resource type="Texture2D" uid="uid://dvm6vr2412ewc" path="res://assets/sprites/decals/gabbagogol.png" id="39_2ejxh"]
+[ext_resource type="Texture2D" uid="uid://bdvk2l2pwfidq" path="res://assets/sprites/decals/decal_budsquare2.png" id="39_807uh"]
 [ext_resource type="Texture2D" uid="uid://bms1jtc4okvan" path="res://assets/sprites/decals/decal_skid.png" id="39_th6cv"]
 [ext_resource type="Texture2D" uid="uid://ch0ui0xiee2pm" path="res://assets/sprites/decals/decal_goblin.png" id="40_0e2i7"]
+[ext_resource type="Texture2D" uid="uid://didqbpxd1ahn2" path="res://assets/sprites/decals/decal_budsquare3.png" id="40_8jifl"]
 [ext_resource type="PackedScene" uid="uid://bscepcm7avmy8" path="res://assets/scenes/buildings/large_building_a.tscn" id="40_c0bsm"]
+[ext_resource type="Texture2D" uid="uid://crjfj7sgbnkyx" path="res://assets/sprites/decals/curve.png" id="40_j6n1n"]
 [ext_resource type="Texture2D" uid="uid://brfp6b146rtrd" path="res://assets/sprites/decals/decal_fjester.png" id="41_anxoy"]
+[ext_resource type="Texture2D" uid="uid://wwhcaq8q85st" path="res://assets/sprites/decals/decal_devil.png" id="41_fc37s"]
 [ext_resource type="PackedScene" uid="uid://n6ly25h5bhss" path="res://assets/scenes/buildings/skyscraper_d.tscn" id="41_pqqdb"]
+[ext_resource type="Texture2D" uid="uid://2h3owmx20rn4" path="res://assets/sprites/decals/decal_freddy.png" id="42_5cvdq"]
 [ext_resource type="PackedScene" uid="uid://cqcf8gtnqfko" path="res://assets/scenes/buildings/skyscraper_a.tscn" id="42_vcc4a"]
 [ext_resource type="PackedScene" uid="uid://bk0v60clavp4x" path="res://assets/scenes/buildings/large_building_b.tscn" id="43_h3rj4"]
 [ext_resource type="Texture2D" uid="uid://bdkrunna7xl8p" path="res://assets/sprites/decals/decal_pets.png" id="43_rcyix"]
@@ -472,10 +484,86 @@ size = Vector3(1.64644, 2.70911, 1.96001)
 texture_albedo = ExtResource("40_0e2i7")
 cull_mask = 1
 
+[node name="Decal3Goblin2" type="Decal" parent="."]
+transform = Transform3D(0.77646, 2.89778, -1.26666e-07, -4.61512e-15, -1.31134e-07, -3, -2.89778, 0.77646, -3.39403e-08, -9.31571, 15.1673, -13.0341)
+size = Vector3(1.64644, 2.70911, 1.96001)
+texture_albedo = ExtResource("34_m3pry")
+cull_mask = 1
+
+[node name="Decal3Goblin3" type="Decal" parent="."]
+transform = Transform3D(0.77646, 2.89778, -1.26666e-07, -4.61512e-15, -1.31134e-07, -3, -2.89778, 0.77646, -3.39403e-08, -9.31571, 15.1673, -6.03412)
+size = Vector3(1.64644, 2.70911, 1.96001)
+texture_albedo = ExtResource("35_d13vl")
+cull_mask = 1
+
+[node name="Decal3Goblin4" type="Decal" parent="."]
+transform = Transform3D(0.77646, 2.89778, -1.26666e-07, -4.61512e-15, -1.31134e-07, -3, -2.89778, 0.77646, -3.39403e-08, -9.31571, 15.1673, -20.0341)
+size = Vector3(1.64644, 2.70911, 1.96001)
+texture_albedo = ExtResource("35_d13vl")
+cull_mask = 1
+
+[node name="Decal3Goblin5" type="Decal" parent="."]
+transform = Transform3D(-0.776456, 2.89778, -1.26666e-07, -7.18886e-15, -1.31134e-07, -3, -2.89778, -0.776456, 3.39399e-08, 19.7092, 20.3213, 15.311)
+size = Vector3(1.57669, 2.70911, 1.45954)
+texture_albedo = ExtResource("36_7x3sb")
+cull_mask = 1
+
+[node name="Decal3Goblin6" type="Decal" parent="."]
+transform = Transform3D(3, -1.96695e-06, 2.02505e-13, -1.50949e-14, -1.31134e-07, -3, 1.96695e-06, 3, -1.31135e-07, 29.9471, 20.3213, 10.0882)
+size = Vector3(1.57669, 2.70911, 1.45954)
+texture_albedo = ExtResource("37_is75w")
+cull_mask = 1
+
+[node name="Decal3Goblin7" type="Decal" parent="."]
+transform = Transform3D(1.83423, -1.96695e-06, 1.29842e-13, -9.22913e-15, -1.31134e-07, -1.92354, 1.20261e-06, 3, -8.40809e-08, 49.5753, 3.01175, 10.9868)
+size = Vector3(0.99977, 2.70911, 0.920076)
+texture_albedo = ExtResource("38_ooou7")
+cull_mask = 1
+
+[node name="Decal3Goblin8" type="Decal" parent="."]
+transform = Transform3D(1.83423, -1.96695e-06, 1.29842e-13, -9.22913e-15, -1.31134e-07, -1.92354, 1.20261e-06, 3, -8.40809e-08, 48.6979, 1.91003, 9.5794)
+size = Vector3(0.99977, 2.70911, 0.920076)
+texture_albedo = ExtResource("39_807uh")
+upper_fade = 0.0362226
+lower_fade = 0.00874718
+cull_mask = 1
+
+[node name="Decal3Goblin9" type="Decal" parent="."]
+transform = Transform3D(1.83423, -1.96695e-06, 1.29842e-13, -9.22913e-15, -1.31134e-07, -1.92354, 1.20261e-06, 3, -8.40809e-08, 46.7989, 1.91003, 10.0882)
+size = Vector3(0.99977, 2.70911, 0.920076)
+texture_albedo = ExtResource("40_8jifl")
+cull_mask = 1
+
+[node name="Decal3Goblin10" type="Decal" parent="."]
+transform = Transform3D(1.83423, -1.96695e-06, 1.29842e-13, -9.22913e-15, -1.31134e-07, -1.92354, 1.20261e-06, 3, -8.40809e-08, 40.3042, 11.5462, 9.16135)
+size = Vector3(3.16248, 1.32669, 2.90242)
+texture_albedo = ExtResource("41_fc37s")
+cull_mask = 1
+
+[node name="Decal3Goblin11" type="Decal" parent="."]
+transform = Transform3D(-1.58849, -1.5, 4.20403e-08, -9.22914e-15, -1.31134e-07, -1.92354, 0.917112, -2.59808, 7.28163e-08, 19.8254, 2.92235, 34.8827)
+size = Vector3(1.73175, 1.32669, 1.77689)
+texture_albedo = ExtResource("42_5cvdq")
+cull_mask = 1
+
 [node name="Decal4DeadPets" type="Decal" parent="."]
 transform = Transform3D(-1.31134e-07, 3, -1.31134e-07, 6.35275e-22, -1.31134e-07, -3, -3, -1.31134e-07, -2.62424e-14, 23.1175, 2.71663, -58.9979)
 size = Vector3(1.32143, 0.663147, 1.25218)
 texture_albedo = ExtResource("43_rcyix")
+
+[node name="Sprite3D3" type="Sprite3D" parent="."]
+transform = Transform3D(3, -1.90735e-06, -2.62268e-07, 1.90735e-06, 3, -4.12115e-13, 2.62268e-07, -4.65174e-13, 3, 45.8927, 34.8968, -62.3291)
+texture = ExtResource("38_qenpb")
+
+[node name="Sprite3D4" type="Sprite3D" parent="."]
+transform = Transform3D(-1.14643e-07, 2.39306e-13, -3, 5.5583e-07, 0.998388, -4.12115e-13, 0.874245, -6.34758e-07, -3.93402e-07, 53.28, 3.21558, -44.6702)
+modulate = Color(0.699653, 0.699653, 0.699653, 1)
+texture = ExtResource("39_2ejxh")
+
+[node name="Sprite3D5" type="Sprite3D" parent="."]
+transform = Transform3D(-3.56731e-08, 6.98169e-14, -3, 1.72955e-07, 0.291278, -4.12115e-13, 0.272035, -1.85189e-07, -3.93402e-07, 55.5834, 3.37684, -59.7402)
+modulate = Color(0.544974, 0.544974, 0.544974, 1)
+texture = ExtResource("40_j6n1n")
 
 [node name="Steps" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.78251, 0.00049591, -17.0337)

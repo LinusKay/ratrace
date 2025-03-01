@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://celmiaybdccdk"]
+
+[ext_resource type="PackedScene" uid="uid://c3kqqljor6wn" path="res://assets/models/characters/character-female-e.glb" id="1_2ayo4"]
+[ext_resource type="Texture2D" uid="uid://cqld2kgynbfy6" path="res://assets/models/characters/colormap.png" id="2_4778p"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dqhjk"]
+albedo_texture = ExtResource("2_4778p")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_povvo"]
+albedo_texture = ExtResource("2_4778p")
+
+[node name="character-female-e2" instance=ExtResource("1_2ayo4")]
+
+[node name="body-mesh" parent="character-female-e/Skeleton3D" index="0"]
+material_override = SubResource("StandardMaterial3D_dqhjk")
+
+[node name="head-mesh" parent="character-female-e/Skeleton3D" index="1"]
+material_override = SubResource("StandardMaterial3D_povvo")
